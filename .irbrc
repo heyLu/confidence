@@ -13,14 +13,16 @@ class StoredHistory
     @history = hist_file
     @src     = hist_src
     
-    last_history = File.read @history rescue ""
-    last_history.lines.each do |line|
-      @src.push line.strip
+    @last_history = File.read(@history).lines.map &:strip rescue []
+    @last_history.each do |line|
+      @src.push line
     end
     
     at_exit do
-      puts "Writing history back to #{@history}"
-      File.write @history, @src.to_a.uniq.reduce { |x,y| "#{x}\n#{y}" }
+      unless @last_history == @src.to_a.uniq
+        puts "Writing changed history back to #{@history}"
+        File.write @history, @src.to_a.uniq.reduce { |x,y| "#{x}\n#{y}" }
+      end
     end
   end
 end
