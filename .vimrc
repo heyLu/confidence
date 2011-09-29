@@ -26,7 +26,7 @@ set fileencodings=utf-8
 set backspace=indent,eol,start
 
 """
-call pathogen#runtime_append_all_bundles()
+call pathogen#infect()
 
 """ Mappin' stuff around a little bit (please :)
 map q :quit<CR>
@@ -67,6 +67,6 @@ autocmd BufNewFile,BufRead *.{html,css,xml} runtime plugin/zencoding.vim
 autocmd BufNewFile,BufRead *.arc set ft=lisp
 
 " Local .vimrc files
-if filereadable('.vimrc')
+if getcwd() != $HOME && filereadable('.vimrc')
 	source .vimrc
 endif
