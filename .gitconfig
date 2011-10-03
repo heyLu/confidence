@@ -3,11 +3,20 @@
 	email = mi.au@papill0n.org
 [core]
 	editor = vi
-[diff]
-	color = true
 [merge]
 	conflictstyle = diff3
-[status]
-	color = true
 [alias]
 	st = status --short --branch
+	lol = log --pretty=oneline --abbrev-commit --graph --decorate
+	ba = branch -a
+[format]
+	pretty = %C(magenta)%h%Creset %Cgreen[%cr]%Creset (%an) %s
+[color]
+	ui = auto
+# Some shortcuts
+[url "git://github.com/"]
+	insteadOf = hub:
+[url "git@github.com:"]
+	insteadOf = gh:
+[url "git@heroku.com:"]
+	insteadOf = heroku:

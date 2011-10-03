@@ -26,7 +26,7 @@ set fileencodings=utf-8
 set backspace=indent,eol,start
 
 """
-call pathogen#infect()
+call pathogen#infect('~/t/vim/')
 
 """ Mappin' stuff around a little bit (please :)
 map q :quit<CR>
@@ -65,6 +65,9 @@ au BufNewFile,BufRead *.{hs,lhs,chs} set ts=4 sw=4 expandtab
 autocmd BufNewFile,BufRead *.{html,css,xml} runtime plugin/zencoding.vim
 
 autocmd BufNewFile,BufRead *.arc set ft=lisp
+
+" Make folds a little more acceptable :)
+highlight Folded ctermbg=255
 
 " Local .vimrc files
 if getcwd() != $HOME && filereadable('.vimrc')
