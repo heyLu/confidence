@@ -16,17 +16,21 @@ set textwidth=72
 " Don't let me further than 1 line towards the end or the beginning.
 set scrolloff=1
 
+"""
+call pathogen#infect('~/t/vim/')
+
 " Have syntax highlighting and non-vi features
 syntax on
 set nocompatible
+
+" soo beautiful! :)
+set background=dark
+colorscheme solarized
 
 set fileencodings=utf-8
 
 " Allow me to delete with backspace
 set backspace=indent,eol,start
-
-"""
-call pathogen#infect('~/t/vim/')
 
 """ Mappin' stuff around a little bit (please :)
 map q :quit<CR>
