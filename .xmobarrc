@@ -1,0 +1,19 @@
+Config {
+    font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*-*",
+    bgColor = "black",
+    fgColor = "grey",
+    position = TopW L 100,
+    commands = [ Run Weather "EDDP" ["-t", " <tempC>C", "-L", "64", "-H", "-77",
+                                     "--normal", "green", "--high", "red", "--low",
+                                     "lightblue"] 36000,
+                 Run Cpu ["-L", "3", "-H", "50", "--normal", "green", "--high", "red"] 10,
+                 Run Memory ["-t", "Mem: <usedratio>%"] 10,
+                 Run Network "wlan0" ["-L","0","-H","100","--normal","green","--high","red"] 10,
+                 Run Battery [ "-t", "Bat: <left>%", "-L", "10", "-H", "80", "-l", "red", "-h", "green" ] 600,
+                 Run Date "%a %b %_d %l:%M" "date" 10,
+                 Run StdinReader
+               ],
+    sepChar = "%",
+    alignSep = "}{",
+    template = "%StdinReader% }{ %cpu% | %memory% | %wlan0% | %battery% (<fc=#ee0a00>%date%</fc>) | %EDDP% "
+}
