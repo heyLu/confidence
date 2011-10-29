@@ -19,7 +19,8 @@ import qualified XMonad.StackSet as W
 main = do
     xmobar <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
-        modMask = mod4Mask,
+        modMask  = mod4Mask,
+        terminal = "urxvt",
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
                         manageDocks,
