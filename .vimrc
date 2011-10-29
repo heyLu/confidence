@@ -3,15 +3,45 @@ set autoindent
 
 " Incremental search is *awesome*
 set incsearch
+set ignorecase " ignore case
+set smartcase " unless pattern contains uppercase
+
+" Some wildcard tweaking
+set wildignore=*.hi,*.o
 
 " Have tabs 3 chars long...
 set tabstop=3
 set shiftwidth=3
+set smarttab
 
+" Copy indent of the last line.
 set copyindent
 
-" Wrap lines automatically
-set textwidth=72
+" Show whitespace
+set list listchars=tab:»·,trail:·
+
+" Keep a longer history
+set history=100
+
+" Wrap lines in textfiles automatically.
+" (Any way to enable in comments?)
+au FileType text set textwidth=72
+
+function! g:setTextWidthInComments()
+	" Capture new position
+	let g:curTextPosition = synIDattr(synIDtrans(synID(line("."), col("."), 0)), "name")
+
+	if( g:curTextPosition == "Comment" )
+		set textwidth=72
+	else
+		set textwidth=0
+	endif
+endfunction
+
+autocmd CursorMoved * :call g:setTextWidthInComments()
+
+au BufNewFile,BufRead *.{hs,lhs} set comments=:--,sr:{-,ex:-}
+au BufNewFile,BufRead *.rb set comments=:#,s:=begin,e:=end
 
 " Don't let me further than 1 line towards the end or the beginning.
 set scrolloff=1
@@ -41,7 +71,9 @@ noremap <Space> :NERDTree<CR>
 noremap <c-b> :make<CR>
 noremap <c-t> :CommandT<CR>
 noremap <c-n> :tabnew<CR>:CommandT<CR>
-noremap <c-f> :!ack 
+noremap <c-f> :!ack
+nmap <c-a> :w<CR>
+noremap <Leader>t :TagbarOpen<CR>
 
 """ Filetype specific stuff comes now...
 
@@ -69,6 +101,7 @@ au BufNewFile,BufRead *.{hs,lhs,chs} set ts=4 sw=4 expandtab
 autocmd BufNewFile,BufRead *.{html,css,xml} runtime plugin/zencoding.vim
 
 autocmd BufNewFile,BufRead *.arc set ft=lisp
+autocmd BufNewFile,BufRead *.md set ft=markdown
 
 " Make folds a little more acceptable :)
 highlight Folded ctermbg=255
