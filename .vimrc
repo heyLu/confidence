@@ -8,6 +8,7 @@ set smartcase " unless pattern contains uppercase
 
 " Some wildcard tweaking
 set wildignore=*.hi,*.o
+set wildmenu
 
 " Have tabs 3 chars long...
 set tabstop=3
@@ -19,6 +20,7 @@ set copyindent
 
 " Show whitespace
 set list listchars=tab:»·,trail:·
+au BufNewFile,BufRead *.{c,h} set listchars=tab:\ \ ,trail:·
 
 " Keep a longer history
 set history=100
@@ -31,7 +33,7 @@ function! g:setTextWidthInComments()
 	" Capture new position
 	let g:curTextPosition = synIDattr(synIDtrans(synID(line("."), col("."), 0)), "name")
 
-	if( g:curTextPosition == "Comment" )
+	if( g:curTextPosition == "Comment" || &ft == "markdown" || &ft == "" )
 		set textwidth=72
 	else
 		set textwidth=0
@@ -59,21 +61,33 @@ colorscheme solarized
 
 set fileencodings=utf-8
 
+" Automatically reread the file if it has been changed from the outside
+set autoread
+
 " Allow me to delete with backspace
 set backspace=indent,eol,start
 
 """ Mappin' stuff around a little bit (please :)
+" remaps
+noremap U <c-r>
+noremap <c-r> q
+"noremap j k
+"noremap k j
 map q :quit<CR>
 map Q :quitall<CR>
-" Note the space after ':tabnew' ;)
-"map t :tabnew 
-noremap <Space> :NERDTree<CR>
-noremap <c-b> :make<CR>
-noremap <c-t> :CommandT<CR>
-noremap <c-n> :tabnew<CR>:CommandT<CR>
-noremap <c-f> :!ack
+" fancy maps
+map <Space> :NERDTree<CR>
+map <c-b> :make<CR> " build
+if( has("ruby") )
+	nmap <Leader>e :CommandT<CR> " edit
+	nmap <Leader>T :tabnew<CR>:CommandT<CR> " tabedit
+else
+	nmap <Leader>e :edit 
+	nmap <Leader>T :tabedit 
+endif
+map <c-f> :!ack
 nmap <c-a> :w<CR>
-noremap <Leader>t :TagbarOpen<CR>
+map <Leader>t :TagbarToggle<CR>
 
 """ Filetype specific stuff comes now...
 
@@ -102,6 +116,8 @@ autocmd BufNewFile,BufRead *.{html,css,xml} runtime plugin/zencoding.vim
 
 autocmd BufNewFile,BufRead *.arc set ft=lisp
 autocmd BufNewFile,BufRead *.md set ft=markdown
+
+autocmd BufNewFile,BufRead *.{c,h} set tags=~/stdlib.tags,~/posix.tags
 
 " Make folds a little more acceptable :)
 highlight Folded ctermbg=255
