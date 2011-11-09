@@ -1,0 +1,25 @@
+#!/bin/bash
+
+rt_REPO="$1"
+
+if [ $# == 0 ]; then
+	echo "Usage: $0 <repo-url>"
+	echo -e " clones repository at <repo-url>"
+	exit 1
+fi
+
+prog_from_url() {
+	if [ `echo $1 | grep -E "(git|hub|repo.or.cz)"` ]; then
+		rt_PROG="git"
+	elif [ `echo $1 | grep -E "(hg|bitbucket)"` ]; then
+		rt_PROG="hg"
+	else
+		echo "Error: Unknown repo at $1"
+		exit 1
+	fi
+}
+
+prog_from_url $rt_REPO
+rt_CMD="clone"
+
+$rt_PROG $rt_CMD $rt_REPO
