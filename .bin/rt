@@ -1,25 +1,59 @@
 #!/bin/bash
 
-rt_REPO="$1"
-
-if [ $# == 0 ]; then
-	echo "Usage: $0 <repo-url>"
-	echo -e " clones repository at <repo-url>"
+if [ $# -lt 1 ]; then
+	echo "Usage: $0 <cmd> <repo> [<args>]"
+	echo "  executes <cmd> for <repo> (passing <args> through)"
 	exit 1
 fi
 
-prog_from_url() {
-	if [ `echo $1 | grep -E "(git|hub|repo.or.cz)"` ]; then
+rt_CMDS="clone\nlog\ndiff\nmerge"
+rt_CMD="$1"
+
+if [ "$rt_REPO" == "" ]; then
+	rt_REPO="."
+fi
+
+# sort of shortcuts for commands (beginnings)
+cmd=`echo -e $rt_CMDS | grep -E "^$1"`
+if [ "$?" == "0" ]; then
+	rt_CMD=$cmd
+fi
+
+prog_from_any() {
+	if [ -d "$1/.git" ]; then
+		rt_PROG="git"
+	elif [ -d "$1/.hg" ]; then
+		rt_PROG="hg"
+	elif [ `echo $1 | grep -E "(git|hub|repo.or.cz)"` ]; then
 		rt_PROG="git"
 	elif [ `echo $1 | grep -E "(hg|bitbucket)"` ]; then
 		rt_PROG="hg"
 	else
-		echo "Error: Unknown repo at $1"
-		exit 1
+		rt_PROG=""
 	fi
 }
 
-prog_from_url $rt_REPO
-rt_CMD="clone"
+rt_clone() {
+	$rt_PROG $rt_CMD $rt_REPO $@
+}
 
-$rt_PROG $rt_CMD $rt_REPO
+rt_any() {
+	cd $rt_REPO
+	$rt_PROG $rt_CMD $@
+	cd - &> /dev/null
+}
+
+if [ "$rt_CMD" == "clone" ]; then
+	rt_REPO="$2"
+	rt_FUN="rt_clone"
+	shift 2
+else
+	shift 1
+	rt_FUN="rt_any"
+fi
+
+# get the repo type
+prog_from_any $rt_REPO
+
+# have fun!
+$rt_FUN $@
