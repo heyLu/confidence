@@ -1,0 +1,24 @@
+# everyones darlingelies
+searchengine go http://www.google.com/search?q=%s
+searchengine wiki http://en.wikipedia.org/wiki/%s
+searchengine wiki-de http://en.wikipedia.org/wiki/%s
+
+# the weird ones
+searchengine rfc http://tools.ietf.org/html/%s
+searchengine wa http://www.wolframalpha.com/input/?i=%s
+
+# haskell
+searchengine ha http://hackage.haskell.org/package/%s
+searchengine ho http://haskell.org/hoogle/?hoogle=%s
+
+set homepage http://suckless.org
+
+#set single_instance false # devel
+set plugin_blocker true
+
+set auto_save 60
+set default_session_name whew
+set session_restored true
+
+map <A-p> nav_history previous
+map <A-n> nav_history next

@@ -1,0 +1,28 @@
+set mbox_type=Maildir
+
+# where all mail lives
+set folder="~/.mails/"
+# default mailbox
+set spoolfile="+lu/INBOX"
+
+mailboxes ! +lu/INBOX.Sent +lu/INBOX.Drafts
+mailboxes +htwk/INBOX
+mailboxes +htwk.imn/INBOX
+
+# msmtp
+set sendmail=/usr/bin/msmtp
+set from="lu@papill0n.org"
+set use_from=yes
+set envelope_from=yes
+
+auto_view text/html
+alternative_order text/plain text/html
+
+# labelling
+set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)?  %?y?[%.20Y] ?%s"
+macro index A "<enter-command>set editor=\"~/k/editlabel append\"\n<edit><sync-mailbox><next-undeleted><enter-command>set editor=vim\n" "Append label"
+macro index \Ca "<tag-prefix><enter-command>set editor=\"~/k/editlabel append\"\n<edit><sync-mailbox><next-undeleted><tag-prefix><enter-command>set editor=vim\n" "Append label"
+macro index E "<enter-command>set editor=\"~/k/editlabel menu\"\n<edit><sync-mailbox><next-undeleted><enter-command>set editor=vim\n" "Edit labels"
+
+# bindings
+bind index n next-unread-mailbox
