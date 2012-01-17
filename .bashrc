@@ -22,7 +22,7 @@ infoq() {
 }
 
 ds() {
-	du -h $1 | tail -n1
+	du -ch $@ | tail -n1
 }
 
 . $HOME/t/sh/z/z.sh
