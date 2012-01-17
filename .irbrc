@@ -1,8 +1,8 @@
 require 'irb/completion'
 
 # Some improvements to irb (coloring + ???)
-require 'wirb'
-Wirb.start
+#require 'wirb'
+#Wirb.start
 
 # A history of commands separated by lines.
 #  @param hist_file the path to the history file (like ~/.bash_history)
