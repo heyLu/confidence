@@ -19,8 +19,8 @@ set smarttab
 set copyindent
 
 " Show whitespace
-set list listchars=tab:»·,trail:·
-au BufNewFile,BufRead *.{c,h} set listchars=tab:\ \ ,trail:·
+"set list listchars=tab:»·,trail:·
+"au BufNewFile,BufRead *.{c,h} set listchars=tab:\ \ ,trail:·
 
 " Keep a longer history
 set history=100
@@ -44,12 +44,14 @@ autocmd CursorMoved * :call g:setTextWidthInComments()
 
 au BufNewFile,BufRead *.{hs,lhs} set comments=:--,sr:{-,ex:-}
 au BufNewFile,BufRead *.rb set comments=:#,s:=begin,e:=end
+au BufNewFile,BufRead *.{opa,trx} set filetype=opa shiftwidth=2 tabstop=2 expandtab
 
 " Don't let me further than 1 line towards the end or the beginning.
 set scrolloff=1
 
 """
 call pathogen#infect('~/t/vim/')
+call pathogen#infect('~/t/notmuch/')
 
 " Have syntax highlighting and non-vi features
 syntax on
@@ -68,6 +70,16 @@ set autoread
 set backspace=indent,eol,start
 
 """ Mappin' stuff around a little bit (please :)
+" disabling the arrow keys (maybe remap useful things to them later):
+" http://jeetworks.org/node/89
+inoremap  <Up>     <NOP>
+inoremap  <Down>   <NOP>
+inoremap  <Left>   <NOP>
+inoremap  <Right>  <NOP>
+noremap   <Up>     <NOP>
+noremap   <Down>   <NOP>
+noremap   <Left>   <NOP>
+noremap   <Right>  <NOP>
 " remaps
 noremap U <c-r>
 noremap <c-r> q
@@ -111,16 +123,22 @@ au BufNewFile,BufRead *.citrus set ft=citrus
 
 au BufNewFile,BufRead *.{hs,lhs,chs} set ts=4 sw=4 expandtab
 
+au BufNewFile,BufRead *.{py} set ts=4 sw=4 expandtab nolist
+
 " ZenCoding. Very fast tag structure creating and friends..
 autocmd BufNewFile,BufRead *.{html,css,xml} runtime plugin/zencoding.vim
 
 autocmd BufNewFile,BufRead *.arc set ft=lisp
 autocmd BufNewFile,BufRead *.md set ft=markdown
 
+autocmd BufNewFile,BufRead *.{vert,frag} set ft=glsl
+
 autocmd BufNewFile,BufRead *.{c,h} set tags=~/stdlib.tags,~/posix.tags
 
 " Make folds a little more acceptable :)
 highlight Folded ctermbg=255
+
+source ~/ruby-1.9.4dev/lib/ruby/gems/1.9.1/gems/rcodetools-0.8.5.0/rcodetools.vim
 
 " Local .vimrc files
 if getcwd() != $HOME && filereadable('.vimrc')
