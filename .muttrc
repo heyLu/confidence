@@ -4,6 +4,8 @@ set mbox_type=Maildir
 set folder="~/.mails/"
 # default mailbox
 set spoolfile="+lu/INBOX"
+set postponed="+postponed"
+set record="+lu/INBOX.Sent"
 
 mailboxes ! +lu/INBOX.Sent +lu/INBOX.Drafts
 mailboxes +htwk/INBOX
