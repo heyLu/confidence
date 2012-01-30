@@ -94,13 +94,9 @@ map Q :quitall<CR>
 " fancy maps
 map <Space> :NERDTree<CR>
 map <c-b> :make<CR> " build
-if( has("ruby") )
-	nmap <Leader>e :CommandT<CR> " edit
-	nmap <Leader>T :tabnew<CR>:CommandT<CR> " tabedit
-else
-	nmap <Leader>e :edit 
-	nmap <Leader>T :tabedit 
-endif
+" Fuzzy finding (http://thechangelog.com/post/15573551543)
+nmap <C-e> :CtrlP<CR>
+nmap <C-p> :tabnew<CR>:CtrlP<CR>
 map <c-f> :!ack
 nmap <c-a> :w<CR>
 map <Leader>t :TagbarToggle<CR>
