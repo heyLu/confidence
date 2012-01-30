@@ -135,6 +135,9 @@ autocmd BufNewFile,BufRead *.{vert,frag} set ft=glsl
 
 autocmd BufNewFile,BufRead *.{c,h} set tags=~/stdlib.tags,~/posix.tags
 
+set runtimepath+=/usr/share/lilypond/2.14.2/vim
+autocmd BufNewFile,BufRead *.ly set filetype=lilypond
+
 " Make folds a little more acceptable :)
 highlight Folded ctermbg=255
 
