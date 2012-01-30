@@ -25,6 +25,9 @@ set copyindent
 " Keep a longer history
 set history=100
 
+" Oh YEAY, finally. Store them (swaps) all in *one* directory.
+set directory=~/.vim/tmp/
+
 " Wrap lines in textfiles automatically.
 " (Any way to enable in comments?)
 au FileType text set textwidth=72
