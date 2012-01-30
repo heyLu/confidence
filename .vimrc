@@ -143,6 +143,11 @@ highlight Folded ctermbg=255
 
 source ~/ruby-1.9.4dev/lib/ruby/gems/1.9.1/gems/rcodetools-0.8.5.0/rcodetools.vim
 
+" Plugin settings
+
+set laststatus=2
+let g:Powerline_symbols='fancy'
+
 " Local .vimrc files
 if getcwd() != $HOME && filereadable('.vimrc')
 	source .vimrc
