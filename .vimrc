@@ -61,6 +61,7 @@ syntax on
 set nocompatible
 
 " soo beautiful! :)
+let g:solarized_termtrans=1 " Somehow needed to make some places (empty space etc.) beautiful aswell
 set background=dark
 colorscheme solarized
 
