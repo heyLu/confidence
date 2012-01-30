@@ -77,4 +77,8 @@
 *color15:               S_base3
 
 URxvt*scrollBar: false
-URxvt*font: xft:Bitstream Vera Sans Mono:pixelsize=14
+URxvt*font:                 xft:Monaco for Powerline:regular:size=11
+URxvt*imFont:               xft:Monaco for Powerline:regular:size=11
+URxvt*boldFont:             xft:Monaco for Powerline:bold:size=11
+URxvt*italicFont:           xft:Monaco for Powerline:italic:size=11
+URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=11
