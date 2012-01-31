@@ -15,6 +15,8 @@ set tabstop=3
 set shiftwidth=3
 set smarttab
 
+set number " With numbertoggle they're quite cool (I think)
+
 " Copy indent of the last line.
 set copyindent
 
@@ -23,7 +25,7 @@ set copyindent
 "au BufNewFile,BufRead *.{c,h} set listchars=tab:\ \ ,trail:·
 
 " Keep a longer history
-set history=100
+set history=1000
 
 " Oh YEAY, finally. Store them (swaps) all in *one* directory.
 set directory=~/.vim/tmp/
