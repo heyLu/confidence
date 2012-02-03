@@ -28,3 +28,6 @@ macro index E "<enter-command>set editor=\"~/k/editlabel menu\"\n<edit><sync-mai
 
 # bindings
 bind index n next-unread-mailbox
+
+# colors
+source $HOME/t/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
