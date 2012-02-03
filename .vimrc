@@ -57,9 +57,12 @@ set scrolloff=1
 """
 call pathogen#infect('~/t/vim/')
 call pathogen#infect('~/t/notmuch/')
+call pathogen#infect('~/t/vim/clojure')
+let g:vimclojure#ParenRainbow=1
 
 " Have syntax highlighting and non-vi features
 syntax on
+filetype plugin indent on
 set nocompatible
 
 " soo beautiful! :)
