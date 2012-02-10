@@ -6,7 +6,8 @@
 [merge]
 	conflictstyle = diff3
 [alias]
-	st = status --short --branch
+	st = status --short --branch .
+	d  = diff .
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 	ba = branch -a
 [format]
