@@ -47,3 +47,4 @@ export PROMPT_COMMAND='history -a; history -c; history -r;'
 
 export EDITOR LESS
 export HISTIGNORE HISTCONTROL
+export VIMCLOJURE_SERVER_JAR="$HOME/t/vim/clojure/server/server-2.3.1.jar"

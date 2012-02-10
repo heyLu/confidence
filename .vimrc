@@ -59,6 +59,8 @@ call pathogen#infect('~/t/vim/')
 call pathogen#infect('~/t/notmuch/')
 call pathogen#infect('~/t/vim/clojure')
 let g:vimclojure#ParenRainbow=1
+let g:vimclojure#NailgunClient="/home/lu/t/vim/clojure/client/ng"
+let g:vimclojure#WantNailgun=1
 
 " Have syntax highlighting and non-vi features
 syntax on
