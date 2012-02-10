@@ -11,8 +11,10 @@ mailboxes ! +lu/INBOX.Sent +lu/INBOX.Drafts
 mailboxes +htwk/INBOX
 mailboxes +htwk.imn/INBOX
 
+set edit_headers=yes
+
 # msmtp
-set sendmail=/usr/bin/msmtp
+set sendmail="/usr/bin/msmtp -a lu"
 set from="lu@papill0n.org"
 set use_from=yes
 set envelope_from=yes
