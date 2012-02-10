@@ -1,0 +1,22 @@
+# projects and other files
++ /d
++ /k
++ /m
+
+# personal stuff
++ /.ssh
++ /.mails
++ /diary
+
+# config
++ /.git
++ /.vimrc
++ /.bashrc
++ /.muttrc
++ /.tmux.conf
++ /.rsync-filter
+
+# eww, we don't want to have them there :)
+- *.hi
+- *.o
+- /*
