@@ -17,6 +17,10 @@ alias t='python ~/t/sh/t/t.py --task-dir ~/.tasks --list task'
 alias u='python ~/t/sh/t/t.py --task-dir ~/.tasks --list uni'
 alias p='python ~/t/sh/t/t.py --task-dir $PWD/.tasks --list task'
 
+# http://blog.jerodsanto.net/2010/12/minimally-awesome-todos/
+todo() { if [ $# = 0 ]; then cat $TODO; else echo " * $@" >> $TODO; fi }
+todone() { sed -n "/$*/p" $TODO >> $TODO.done; sed -i "/$*/d" $TODO; }
+
 infoq() {
 	ipadUA='Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10'
 	curl --silent --header "User-Agent: $ipadUA" $1 | grep '<source' | sed 's/^[ ]*.*="\(.*\)".*$/\1/'
@@ -48,3 +52,4 @@ export PROMPT_COMMAND='history -a; history -c; history -r;'
 export EDITOR LESS
 export HISTIGNORE HISTCONTROL
 export VIMCLOJURE_SERVER_JAR="$HOME/t/vim/clojure/server/server-2.3.1.jar"
+export TODO="$HOME/d/todo"
