@@ -1,0 +1,8 @@
+alignment bottom_middle
+gap_x 0
+gap_y 0
+use_xft yes
+xftfont Monaco for Powerline:size=12
+
+TEXT
+${exec cat ~/d/todo}
