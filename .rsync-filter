@@ -6,7 +6,11 @@
 # personal stuff
 + /.ssh
 + /.mails
++ /.irssi/logs
 + /diary
+
+# history
++ /.config/chromium
 
 # config
 + /.git
