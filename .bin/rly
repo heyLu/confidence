@@ -55,6 +55,7 @@ rl.on 'line', (cmd) ->
 	cmd = cmplt + cmd
 	if is_balanced cmd
 		send_to_repl cmd
+		cmplt = ""
 	else
 		cmplt = cmd
 		rl.write("  ")
