@@ -4,7 +4,9 @@ import XMonad.Hooks.ManageDocks (manageDocks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.Tabbed (simpleTabbed)
 import XMonad.Util.Run (spawnPipe)
+import XMonad.Util.EZConfig (additionalKeys)
 import System.IO (hPutStrLn)
+import Data.IORef.MonadIO (newIORef, readIORef, modifyIORef)
 
 import Monad (when)
 import Data.Monoid (All (All))
@@ -17,6 +19,7 @@ import qualified XMonad.StackSet as W
 --  * Logging framework (like reading urls from Firefox and the like)
 
 main = do
+    kbMap <- newIORef "us"
     xmobar <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
         modMask  = mod4Mask,
@@ -34,7 +37,14 @@ main = do
             ppTitle = xmobarColor "green" ""
         },
         handleEventHook = evHook
-   }
+     } `additionalKeys` [
+        ((mod4Mask, xK_l), changeKbMap kbMap)
+     ]
+  where changeKbMap kbMap = do
+          kb <- readIORef kbMap
+          let switchLang cur = if cur == "us" then "de" else "us"
+          spawn $ "setxkbmap " ++ switchLang kb
+          modifyIORef kbMap switchLang
 
 evHook :: Event -> X All
 evHook (ClientMessageEvent _ _ _ dpy win typ dat) = do
