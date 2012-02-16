@@ -26,16 +26,17 @@ infoq() {
 	curl --silent --header "User-Agent: $ipadUA" $1 | grep '<source' | sed 's/^[ ]*.*="\(.*\)".*$/\1/'
 }
 
-ds() {
-	du -ch $@ | tail -n1
-}
+ds() { du -ch $@ | tail -n1; }
 
 . $HOME/t/sh/z/z.sh
 
 # bash-completion for sudo
 complete -cf sudo
 
-PATH=$HOME/.cabal/bin:$HOME/ruby-1.9.4dev/bin:$HOME/erlang-git/bin:$HOME/nodejs/bin:$PATH
+for path in .bin .cabal ruby-1.9.4dev erlang-git nodejs .lang-ghc-7.4.1; do
+	if [ -d "$HOME/$path/bin" ]; then bindir="bin"; fi
+	PATH="$HOME/$path/$bindir:$PATH"
+done
 
 # Make some programs friendlier
 EDITOR=vim
@@ -51,5 +52,4 @@ export PROMPT_COMMAND='history -a; history -c; history -r;'
 
 export EDITOR LESS
 export HISTIGNORE HISTCONTROL
-export VIMCLOJURE_SERVER_JAR="$HOME/t/vim/clojure/server/server-2.3.1.jar"
 export TODO="$HOME/d/todo"
