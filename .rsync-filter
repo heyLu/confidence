@@ -23,4 +23,5 @@
 # eww, we don't want to have them there :)
 - *.hi
 - *.o
+- *.jar
 - /*
