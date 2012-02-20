@@ -29,6 +29,8 @@ macro index \Ca "<tag-prefix><enter-command>set editor=\"~/k/editlabel append\"\
 macro index E "<enter-command>set editor=\"~/k/editlabel menu\"\n<edit><sync-mailbox><next-undeleted><enter-command>set editor=vim\n" "Edit labels"
 
 # bindings
+macro index = <tag-prefix>
+macro index * <tag-entry>
 bind index n next-unread-mailbox
 
 # colors
