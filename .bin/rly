@@ -6,7 +6,7 @@ readline = require 'readline'
 # Send something to nailgun and format the result.
 
 send_to_repl = (str) ->
-	child = exec "/home/lu/t/vim/clojure/client/ng vimclojure.Nail Repl -r",
+	child = exec "/home/lu/t/vim/clojure/client/ng vimclojure.Nail Repl #{process.argv[2..].join " "} -r",
 		(err, stdout, stderr) ->
 			if(err)
 				console.log err
