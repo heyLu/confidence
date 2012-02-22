@@ -29,9 +29,14 @@ macro index \Ca "<tag-prefix><enter-command>set editor=\"~/k/editlabel append\"\
 macro index E "<enter-command>set editor=\"~/k/editlabel menu\"\n<edit><sync-mailbox><next-undeleted><enter-command>set editor=vim\n" "Edit labels"
 
 # bindings
+## edit/move many messages
 macro index = <tag-prefix>
 macro index * <tag-entry>
-bind index n next-unread-mailbox
+## changing mailboxes
+macro index 1 "<change-folder>=lu/INBOX<enter>"
+macro index 2 "<change-folder>=htwk.imn/INBOX<enter>"
+macro index 3 "<change-folder>=htwk/INBOX<enter>"
+bind  index n next-unread-mailbox
 
 # colors
 source $HOME/t/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
