@@ -1,10 +1,11 @@
 # shortcuts
-alias _ls='ls --color=auto'
+alias _ls='/bin/ls --color=auto'
 alias ls='~/t/ls--/ls++'
 alias v='~/t/sh/v/v'
 alias here='find . -type f -name '
 # Find targets in a Makefile: targets <makefile>
 alias targets='grep -E "^[-A-Za-z0-9]+:"'
+alias diff='diff -u'
 
 ## archlinux
 alias _ps="pacman -Ss"
@@ -33,7 +34,7 @@ ds() { du -ch $@ | tail -n1; }
 # bash-completion for sudo
 complete -cf sudo
 
-for path in .bin .cabal ruby-1.9.4dev erlang-git nodejs .lang-ghc-7.4.1; do
+for path in .bin .cabal ruby-1.9.4dev erlang-git nodejs .lang_ghc-7.4.1 .lang_j701a; do
 	if [ -d "$HOME/$path/bin" ]; then bindir="bin"; fi
 	PATH="$HOME/$path/$bindir:$PATH"
 done
