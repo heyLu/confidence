@@ -8,5 +8,7 @@ xrdb -merge ~/.Xresources
 start-pulseaudio-x11
 pactl set-sink-volume 0 1.0
 conky&
-exec xmonad
+
+exec awesome
+#exec xmonad
 #exec gnome-session
