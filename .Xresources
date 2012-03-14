@@ -78,6 +78,7 @@
 
 !! urxvt settings
 URxvt*scrollBar:            false
+URxvt*urgentOnBell:         true
 
 URxvt*font:                 xft:Monaco for Powerline:regular:size=11
 URxvt*imFont:               xft:Monaco for Powerline:regular:size=11
@@ -85,8 +86,7 @@ URxvt*boldFont:             xft:Monaco for Powerline:bold:size=11
 URxvt*italicFont:           xft:Monaco for Powerline:italic:size=11
 URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=11
 
-URxvt.perl-ext-common:      default,fullscreen,url-select
+URxvt.perl-ext-common:      default,url-select
 URxvt.keysym.M-u:           perl:url-select:select_next
 URxvt.urlLauncher:          chromium
 URxvt.underlineURLs:        true
-URxvt.keysym.F11:           perl:fullscreen:switch
