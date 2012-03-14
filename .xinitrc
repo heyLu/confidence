@@ -6,6 +6,7 @@ xrdb -merge ~/.Xresources
 #feh -bg-scale /usr/share/themes/Adwaita/backgrounds/stripes.jpg
 
 start-pulseaudio-x11
+pactl set-sink-volume 0 1.0
 conky&
 exec xmonad
 #exec gnome-session
