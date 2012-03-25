@@ -19,7 +19,8 @@ set wildmenu
 set tabstop=3
 set shiftwidth=3
 set smarttab
-set paste " keep indendation on paste
+set nopaste
+set pastetoggle=<C-i>
 
 set number " With numbertoggle they're quite cool (I think)
 
@@ -27,11 +28,14 @@ set number " With numbertoggle they're quite cool (I think)
 set copyindent
 
 " Show whitespace
-"set list listchars=tab:»·,trail:·
+set list listchars=tab:»·,trail:·,eol:¶
 "au BufNewFile,BufRead *.{c,h} set listchars=tab:\ \ ,trail:·
 
 " Keep a longer history
 set history=1000
+
+" Keep buffers when closing them (useful?)
+set hidden
 
 " Oh YEAY, finally. Store them (swaps) all in *one* directory.
 set directory=~/.vim/tmp/
@@ -50,8 +54,7 @@ function! g:setTextWidthInComments()
 		set textwidth=0
 	endif
 endfunction
-
-autocmd CursorMoved * :call g:setTextWidthInComments()
+"autocmd CursorMoved * :call g:setTextWidthInComments()
 
 " via <http://paulrouget.com/e/vimdarkroom>
 function! ToggleFocusMode()
@@ -84,16 +87,18 @@ set scrolloff=1
 
 """
 call pathogen#infect('~/t/vim/')
+let g:ScreenImpl = 'Tmux'
+let g:ctrlp_custom_ignore = {
+	\ 'dir': '\.git$'
+\ }
+let g:ctrlp_prompt_mappings = {
+	\ 'PrtClearCache': ['<F12>']
+\ }
 call pathogen#infect('~/t/notmuch/')
 call pathogen#infect('~/t/vim/clojure')
 let g:vimclojure#ParenRainbow=1
 let g:vimclojure#NailgunClient="/home/lu/t/vim/clojure/client/ng"
-let g:vimclojure#WantNailgun=1
-
-" Have syntax highlighting and non-vi features
-syntax on
-filetype plugin indent on
-set nocompatible
+let g:vimclojure#WantNailgun=0
 
 " soo beautiful! :)
 let g:solarized_termtrans=1 " Somehow needed to make some places (empty space etc.) beautiful aswell
@@ -130,8 +135,8 @@ map Q :quitall<CR>
 map <Space> :NERDTree<CR>
 map <c-b> :make<CR> " build
 " Fuzzy finding (http://thechangelog.com/post/15573551543)
-nmap <C-e> :CtrlP<CR>
-nmap <C-p> :tabnew<CR>:CtrlP<CR>
+noremap <C-e> :CtrlP<CR>
+noremap <C-p> :tabnew<CR>:CtrlP<CR>
 map <c-f> :!ack
 nmap <c-a> :w<CR>
 map <Leader>t :TagbarToggle<CR>
