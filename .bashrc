@@ -19,8 +19,8 @@ alias u='python ~/t/sh/t/t.py --task-dir ~/.tasks --list uni'
 alias p='python ~/t/sh/t/t.py --task-dir $PWD/.tasks --list task'
 
 # http://blog.jerodsanto.net/2010/12/minimally-awesome-todos/
-todo() { if [ $# = 0 ]; then cat $TODO; else echo " * $@" >> $TODO; fi }
-todone() { sed -n "/$*/p" $TODO >> $TODO.done; sed -i "/$*/d" $TODO; }
+todo() { if [ $# = 0 ]; then cat $TODO; else echo " * $@ `date --rfc-3339=seconds`," >> $TODO; fi }
+todone() { sed -n "/$*/s|$| `date --rfc-3339=seconds`|p" $TODO >> $TODO.done; sed -i "/$*/d" $TODO; }
 
 infoq() {
 	ipadUA='Mozilla/5.0 (iPad; U; CPU OS 3_2 like Mac OS X; en-us) AppleWebKit/531.21.10 (KHTML, like Gecko) Version/4.0.4 Mobile/7B334b Safari/531.21.10'
