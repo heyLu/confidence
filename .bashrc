@@ -52,5 +52,5 @@ export PS1='\u \w$ '
 export PROMPT_COMMAND='history -a; history -c; history -r;'
 
 export EDITOR LESS
-export HISTIGNORE HISTCONTROL
+export HISTIGNORE HISTCONTROL HISTSIZE=1000000
 export TODO="$HOME/d/todo"
