@@ -1,3 +1,8 @@
+" Have syntax highlighting and non-vi features
+syntax on
+filetype plugin indent on
+set nocompatible
+
 " Indent without helping me.
 set autoindent
 
