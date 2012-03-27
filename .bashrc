@@ -40,6 +40,8 @@ for path in .bin .cabal ruby-1.9.4dev erlang-git nodejs .lang_ghc-7.4.1 .lang_j7
 	PATH="$HOME/$path/$bindir:$PATH"
 done
 
+PATH="/usr/local/waldmann/bin:$PATH"
+
 # Make some programs friendlier
 EDITOR=vim
 # aka LESS=XFR
