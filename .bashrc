@@ -40,7 +40,7 @@ for path in .bin .cabal ruby-1.9.4dev erlang-git nodejs .lang_ghc-7.4.1 .lang_j7
 	PATH="$HOME/$path/$bindir:$PATH"
 done
 
-PATH="/usr/local/waldmann/bin:$PATH"
+PATH="/usr/local/waldmann/bin::$HOME/.local/bin:$PATH"
 
 # Make some programs friendlier
 EDITOR=vim
@@ -50,6 +50,7 @@ LESS="--no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
 HISTIGNORE="&:ls:exit"
 HISTCONTROL=ignoredups:erasedups
 
+export LD_LIBRARY_PATH=$HOME/.local/lib
 #export PS1="\u [$(t | wc -l | sed -e's/ *//')] \w ($(git branch | sed 's/^\* //'))$ "
 export PS1='\u \w$ '
 export PROMPT_COMMAND='history -a; history -c; history -r;'
