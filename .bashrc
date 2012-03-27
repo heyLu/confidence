@@ -1,6 +1,7 @@
 # shortcuts
 alias _ls='/bin/ls --color=auto'
-alias ls='~/t/ls--/ls++'
+[ -x ~/.ls--/ls++ ] && alias ls='~/t/ls--/ls++'
+
 alias v='~/t/sh/v/v'
 alias here='find . -type f -name '
 # Find targets in a Makefile: targets <makefile>
