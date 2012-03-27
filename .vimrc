@@ -192,7 +192,10 @@ autocmd BufNewFile,BufRead *.ly set filetype=lilypond
 " Make folds a little more acceptable :)
 highlight Folded ctermbg=255
 
-source ~/ruby-1.9.4dev/lib/ruby/gems/1.9.1/gems/rcodetools-0.8.5.0/rcodetools.vim
+let s:rcodetools = "~/ruby-1.9.4dev/lib/ruby/gems/1.9.1/gems/rcodetools-0.8.5.0/rcodetools.vim"
+if filereadable(s:rcodetools)
+    source s:rcodetools
+endif
 
 " Plugin settings
 
