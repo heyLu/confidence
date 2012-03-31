@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# rt - A repository tool abstracting away from any specific VCS.
+#
+# Currently supported: git, hg.
+
 if [ $# -lt 1 ]; then
 	echo "Usage: $0 <cmd> <repo> [<args>]"
 	echo "  executes <cmd> for <repo> (passing <args> through)"
