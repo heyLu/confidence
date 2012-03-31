@@ -1,0 +1,7 @@
+#!/bin/sh
+
+# Puts window manager events (such as focus) events into various kinds of other
+# places.
+
+echo "$@ `date --rfc-3339=seconds`" >> ~/.eventstream
+echo "me.window.$1:1|c" | nc -uc localhost 8125
