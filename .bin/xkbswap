@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# Swap the current keyboard layout (from de to us and back again).
+
+if setxkbmap -query | grep us &> /dev/null; then
+	lang=de
+else
+	lang=us
+fi
+
+setxkbmap $lang
