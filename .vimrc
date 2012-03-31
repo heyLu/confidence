@@ -131,6 +131,9 @@ noremap <c-r> q
 "noremap k j
 map q :quit<CR>
 map Q :quitall<CR>
+" save a 'project'
+map <leader>ps :mksession! .project.vim
+map <leader>pl :source .project.vim
 " fancy maps
 map <Space> :NERDTree<CR>
 map <c-b> :make<CR> " build
@@ -191,4 +194,8 @@ let g:Powerline_symbols='fancy'
 " Local .vimrc files
 if getcwd() != $HOME && filereadable('.vimrc')
 	source .vimrc
+endif
+
+if filereadable('.project.vim') && expand("%p") != ".git/COMMIT_EDITMSG"
+	silent source .project.vim
 endif
