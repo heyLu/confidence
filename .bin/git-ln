@@ -1,0 +1,8 @@
+#!/bin/sh
+
+# Show a numbered git log (latest commit gets highest number).
+
+git log --all > ~/.git-ln.tmp
+sed = ~/.git-ln.tmp | sed -n 'p;n' | tac > ~/.git-ln.tmp2
+git log $@ > ~/.git-ln.tmp
+paste ~/.git-ln.tmp{2,} | less
