@@ -250,8 +250,9 @@ globalkeys = awful.util.table.join(
               end),
 
     awful.key({ modkey }, "l", function() os.execute("xkbswap") end),
-    awful.key({ modkey }, "b", function() os.execute("chromium") end),
-    awful.key({ modkey, "Shift" }, "b", function() os.execute("chromium --incognito") end)
+    awful.key({ modkey, "Shift" }, "l", function() os.execute("xlock -mode blank") end),
+    awful.key({ modkey }, "b", function() awful.util.spawn("chromium", false) end),
+    awful.key({ modkey, "Shift" }, "b", function() awful.util.spawn("chromium --incognito", false) end)
 )
 
 clientkeys = awful.util.table.join(
