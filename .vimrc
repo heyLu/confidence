@@ -124,6 +124,11 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+" Move easier between windows
+noremap <C-h> <C-w>h
+noremap <C-j> <C-w>j
+noremap <C-k> <C-w>k
+noremap <C-l> <C-w>l
 " remaps
 noremap U <c-r>
 noremap <c-r> q
