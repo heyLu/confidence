@@ -201,6 +201,6 @@ if getcwd() != $HOME && filereadable('.vimrc')
 	source .vimrc
 endif
 
-if filereadable('.project.vim') && expand("%p") != ".git/COMMIT_EDITMSG"
+if filereadable('.project.vim') && expand("%") == ""
 	silent source .project.vim
 endif
