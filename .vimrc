@@ -20,16 +20,12 @@ set tabstop=3
 set shiftwidth=3
 set smarttab
 set nopaste
-set pastetoggle=<C-i>
+set pastetoggle=<F12>
 
 set number " With numbertoggle they're quite cool (I think)
 
 " Copy indent of the last line.
 set copyindent
-
-" Show whitespace
-set list listchars=tab:»·,trail:·,eol:¶
-"au BufNewFile,BufRead *.{c,h} set listchars=tab:\ \ ,trail:·
 
 " Keep a longer history
 set history=1000
@@ -42,6 +38,7 @@ set directory=~/.vim/tmp/
 
 " Wrap lines in textfiles automatically.
 " (Any way to enable in comments?)
+set textwidth=72
 au FileType text set textwidth=72
 
 function! g:setTextWidthInComments()
@@ -87,7 +84,6 @@ set scrolloff=1
 
 """
 call pathogen#infect('~/t/vim/')
-let g:ScreenImpl = 'Tmux'
 let g:ctrlp_custom_ignore = {
 	\ 'dir': '\.git$'
 \ }
@@ -101,9 +97,16 @@ let g:vimclojure#NailgunClient="/home/lu/t/vim/clojure/client/ng"
 let g:vimclojure#WantNailgun=0
 
 " soo beautiful! :)
-let g:solarized_termtrans=1 " Somehow needed to make some places (empty space etc.) beautiful aswell
 set background=dark
+let g:solarized_termtrans  = 0
+let g:solarized_termcolors = 16
 colorscheme solarized
+
+" Show whitespace
+set list
+set listchars=tab:→\ ,trail:·,eol:¬
+"highlight SpecialKey ctermfg=10 ctermbg=8
+"highlight NonText ctermfg=10 ctermbg=8
 
 set fileencodings=utf-8
 
