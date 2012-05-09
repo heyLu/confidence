@@ -8,6 +8,7 @@
 [alias]
 	st = status --short --branch .
 	d  = diff .
+	l10 = log -n10
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 	ba = branch -a
 [format]
