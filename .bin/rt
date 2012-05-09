@@ -28,7 +28,7 @@ prog_from_any() {
 		rt_PROG="git"
 	elif [ -d "$1/.hg" ]; then
 		rt_PROG="hg"
-	elif [ `echo $1 | grep -E "(git|hub|repo.or.cz)"` ]; then
+	elif [ `echo $1 | grep -E "(git|hub|gh|repo.or.cz)"` ]; then
 		rt_PROG="git"
 	elif [ `echo $1 | grep -E "(hg|bitbucket)"` ]; then
 		rt_PROG="hg"
