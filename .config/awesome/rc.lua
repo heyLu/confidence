@@ -251,8 +251,8 @@ globalkeys = awful.util.table.join(
 
     awful.key({ modkey }, "l", function() os.execute("xkbswap") end),
     awful.key({ modkey, "Shift" }, "l", function() os.execute("xlock -mode blank") end),
-    awful.key({ modkey }, "b", function() awful.util.spawn("chromium", false) end),
-    awful.key({ modkey, "Shift" }, "b", function() awful.util.spawn("chromium --incognito", false) end)
+    awful.key({ modkey }, "b", function() awful.util.spawn("chromium --allow-file-access-from-files", false) end),
+    awful.key({ modkey, "Shift" }, "b", function() awful.util.spawn("chromium --incognito --allow-file-access-from-files", false) end)
 )
 
 clientkeys = awful.util.table.join(
