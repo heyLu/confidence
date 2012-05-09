@@ -377,6 +377,10 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 
 -- My own stuff
 
+screen[1]:connect_signal("tag::history::update", function()
+	os.execute("/home/lu/.bin/events tag '" .. awful.tag.selected(1).name .. "'")
+end)
+
 client.connect_signal("focus", function(c)
 	os.execute("/home/lu/.bin/events focus '" .. c.name .. "'")
 end)
