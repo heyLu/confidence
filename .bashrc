@@ -55,7 +55,7 @@ HISTCONTROL=ignoredups:erasedups
 
 #export PS1="\u [$(t | wc -l | sed -e's/ *//')] \w ($(git branch | sed 's/^\* //'))$ "
 export PS1='\u \w$ '
-export PROMPT_COMMAND='history -a; history -c; history -r;'
+export PROMPT_COMMAND='history -a; history -c; history -r; echo -en "\a"'
 
 export EDITOR LESS
 export HISTIGNORE HISTCONTROL HISTSIZE=1000000
