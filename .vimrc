@@ -180,7 +180,7 @@ au BufNewFile,BufRead *.{py} set ts=4 sw=4 expandtab nolist
 autocmd BufNewFile,BufRead *.{html,css,xml} runtime plugin/zencoding.vim
 
 autocmd BufNewFile,BufRead *.arc set ft=lisp
-autocmd BufNewFile,BufRead *.md set ft=markdown
+autocmd BufNewFile,BufRead *.md set ft=markdown sw=4 ts=4 expandtab
 
 autocmd BufNewFile,BufRead *.{vert,frag} set ft=glsl
 
