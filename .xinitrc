@@ -9,6 +9,8 @@ start-pulseaudio-x11
 pactl set-sink-volume 0 1.0
 conky&
 
+xmodmap ~/.swap-esc-capslock
+
 exec awesome
 #exec xmonad
 #exec gnome-session
