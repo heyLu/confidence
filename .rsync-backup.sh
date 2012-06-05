@@ -2,6 +2,12 @@
 
 # rsync's $HOME to my local backup server.
 
+# Exit if already running
+if `pidof rsync &> /dev/null`; then
+	echo "Looks like another rsync is already running, exiting..."
+	exit 0
+fi
+
 # Check whether I'm at home (yeah, I know...)
 ping -c1 192.168.220.109 &> /dev/null
 if [ $? != 0 ]; then
