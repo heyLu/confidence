@@ -34,9 +34,15 @@ ds() { du -ch $@ | tail -n1; }
 # bash-completion for sudo
 complete -cf sudo
 
-for path in .bin .cabal ruby-1.9.4dev erlang-git nodejs .lang_ghc-7.4.1 .lang_j701a; do
-	if [ -d "$HOME/$path/bin" ]; then bindir="bin"; fi
-	PATH="$HOME/$path/$bindir:$PATH"
+for path in .bin .cabal ruby-1.9.4dev erlang-git ~/.lang_*; do
+	if [ -d "$HOME/$path/bin" ]; then
+		bindir="$HOME/$path/bin"
+	elif [ -d "$path/bin" ]; then
+		bindir="$path/bin"
+	else
+		bindir="$HOME/$path"
+	fi
+	PATH="$bindir:$PATH"
 done
 
 # Make some programs friendlier
