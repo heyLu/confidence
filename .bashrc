@@ -1,5 +1,5 @@
 # shortcuts
-alias _ls='/bin/ls --color=auto'
+alias _ls='/bin/ls --group-directories-first --color=auto'
 alias ls='~/t/ls--/ls++'
 alias v='~/t/sh/v/v'
 alias here='find . -type f -name '
