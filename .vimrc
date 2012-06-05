@@ -189,8 +189,8 @@ autocmd BufNewFile,BufRead *.{c,h} set tags=~/stdlib.tags,~/posix.tags
 set runtimepath+=/usr/share/lilypond/2.14.2/vim
 autocmd BufNewFile,BufRead *.ly set filetype=lilypond
 
-" Make folds a little more acceptable :)
-highlight Folded ctermbg=255
+autocmd BufNewFile,BufRead *.java set include=^#\s*import
+autocmd BufNewFile,BufRead *.java set includeexpr=substitute(v:fname,'\\.','/','g')
 
 source ~/ruby-1.9.4dev/lib/ruby/gems/1.9.1/gems/rcodetools-0.8.5.0/rcodetools.vim
 
