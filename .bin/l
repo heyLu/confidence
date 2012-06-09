@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+# ls or less anything in your filesystem (depending on what it is).
+
+if [ -d $1 ]; then
+	ls --group-directories-first --color=auto $1
+elif [ -f $1 ]; then
+	less $1
+fi
