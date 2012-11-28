@@ -22,3 +22,7 @@
 	insteadOf = gh:
 [url "git@heroku.com:"]
 	insteadOf = heroku:
+[url "git://anongit.freedesktop.org/"]
+	insteadOf = fd:
+[url "git@bitbucket.org:"]
+	insteadOf = bb:
