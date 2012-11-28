@@ -59,3 +59,4 @@ export PROMPT_COMMAND='history -a; history -c; history -r; echo -en "\a"'
 export EDITOR LESS
 export HISTIGNORE HISTCONTROL HISTSIZE=1000000
 export TODO="$HOME/d/todo"
+export XDG_AUR_HOME=$HOME/Downloads/aur
