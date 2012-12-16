@@ -331,7 +331,7 @@ root.keys(globalkeys)
 awful.rules.rules = {
     -- All clients will match this rule.
     { rule = { },
-      properties = { border_width = beautiful.border_width,
+      properties = { border_width = 3,--beautiful.border_width,
                      border_color = beautiful.border_normal,
                      focus = true,
                      keys = clientkeys,
@@ -361,6 +361,8 @@ client.connect_signal("manage", function (c, startup)
             client.focus = c
         end
     end)
+
+    c.size_hints_honor = false
 
     if not startup then
         -- Set the windows at the slave,
