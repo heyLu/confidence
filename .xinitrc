@@ -7,9 +7,9 @@ xrdb -merge ~/.Xresources
 
 start-pulseaudio-x11
 pactl set-sink-volume 0 1.0
-conky&
+#conky&
 
-xmodmap ~/.swap-esc-capslock
+#xmodmap ~/.swap-esc-capslock
 
 exec awesome
 #exec xmonad
