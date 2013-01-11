@@ -44,19 +44,4 @@ for path in .bin .cabal ruby-1.9.4dev erlang-git ~/.lang_*; do
 	PATH="$bindir:$PATH"
 done
 
-# Make some programs friendlier
-EDITOR=vim
-# aka LESS=XFR
-LESS="--no-init --quit-if-one-screen --RAW-CONTROL-CHARS"
-
-HISTIGNORE="&:ls:exit"
-HISTCONTROL=ignoredups:erasedups
-
-#export PS1="\u [$(t | wc -l | sed -e's/ *//')] \w ($(git branch | sed 's/^\* //'))$ "
-export PS1='\u \w$ '
-export PROMPT_COMMAND='history -a; history -c; history -r; echo -en "\a"'
-
-export EDITOR LESS
-export HISTIGNORE HISTCONTROL HISTSIZE=1000000
-export TODO="$HOME/d/todo"
-export XDG_AUR_HOME=$HOME/Downloads/aur
+. $HOME/.env
