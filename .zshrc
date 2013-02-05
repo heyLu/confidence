@@ -41,3 +41,5 @@ bindkey $terminfo[kend]  end-of-line
 bindkey $terminfo[khome] beginning-of-line
 bindkey $terminfo[kdch1] delete-char
 bindkey  history-incremental-search-backward
+
+source ~/.env
