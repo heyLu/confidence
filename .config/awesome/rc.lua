@@ -250,7 +250,7 @@ globalkeys = awful.util.table.join(
               end),
 
     awful.key({ modkey }, "l", function() os.execute(os.getenv('HOME') .. "/.bin/xkbswap") end),
-    awful.key({ modkey, "Shift" }, "l", function() os.execute("xlock -mode blank") end),
+    awful.key({ modkey, "Shift" }, "l", function() os.execute("slock") end),
     awful.key({ modkey }, "b", function() awful.util.spawn("chromium --allow-file-access-from-files", false) end),
     awful.key({ modkey, "Shift" }, "b", function() awful.util.spawn("chromium --incognito --allow-file-access-from-files", false) end),
 
