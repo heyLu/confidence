@@ -253,6 +253,9 @@ globalkeys = awful.util.table.join(
     awful.key({ modkey, "Shift" }, "l", function() os.execute("slock") end),
     awful.key({ modkey }, "b", function() awful.util.spawn("chromium --allow-file-access-from-files", false) end),
     awful.key({ modkey, "Shift" }, "b", function() awful.util.spawn("chromium --incognito --allow-file-access-from-files", false) end),
+    awful.key({ }, "Print", function ()
+        awful.util.spawn("scrot -e 'mv $f ~/m/pictures/ 2>/dev/null'")
+    end),
 
 	 awful.key({ }, "XF86AudioMute", function() os.execute("amixer set Master toggle") end),
     awful.key({ }, "XF86AudioLowerVolume", function() os.execute("amixer set Master 5%-") end),
