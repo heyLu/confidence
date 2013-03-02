@@ -396,3 +396,10 @@ client.connect_signal("focus", function(c)
 	end
 	os.execute("/home/lu/.bin/events focus '" .. c.name .. "'")
 end)
+
+client.connect_signal("property::name", function(c)
+	if (c.name == nil) then
+		return
+	end
+	os.execute("/home/lu/.bin/events focus '" .. c.name .. "'")
+end)
