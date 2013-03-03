@@ -35,6 +35,8 @@ set hidden
 
 " Oh YEAY, finally. Store them (swaps) all in *one* directory.
 set directory=~/.vim/tmp/
+set undodir=~/.vim/tmp/
+set undofile
 
 " Wrap lines in textfiles automatically.
 " (Any way to enable in comments?)
