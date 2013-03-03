@@ -38,6 +38,7 @@ $(repo_char) $ "
 	RPROMPT="%D{%Y-%m-%d} %{$fg[red]%}%t%{$reset_color%}"
 }
 
+bindkey -e
 bindkey $terminfo[kend]  end-of-line
 bindkey $terminfo[khome] beginning-of-line
 bindkey $terminfo[kdch1] delete-char
