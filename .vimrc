@@ -88,6 +88,7 @@ set scrolloff=1
 
 """
 call pathogen#infect('~/t/vim/')
+call pathogen#infect('~/t/rust/src/etc/')
 let g:ctrlp_custom_ignore = {
 	\ 'dir': '\.git$'
 \ }
