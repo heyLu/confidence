@@ -44,4 +44,6 @@ bindkey $terminfo[khome] beginning-of-line
 bindkey $terminfo[kdch1] delete-char
 bindkey  history-incremental-search-backward
 
+alias ls='ls --group-directories-first --color=auto'
+
 source ~/.env
