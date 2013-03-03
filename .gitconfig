@@ -26,3 +26,5 @@
 	insteadOf = fd:
 [url "git@bitbucket.org:"]
 	insteadOf = bb:
+[push]
+	default = simple
