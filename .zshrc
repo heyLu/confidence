@@ -1,7 +1,8 @@
 # The following lines were added by compinstall
 
 zstyle ':completion:*' completer _complete _ignored
-zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'r:|[._-/]=** r:|=**'
+#zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'r:|[._-/]=** r:|=**'
+zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**'
 zstyle :compinstall filename '/home/lu/.zshrc'
 
 autoload -Uz compinit
