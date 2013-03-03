@@ -1,7 +1,23 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/vundle
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+Bundle 'Valloric/YouCompleteMe'
+Bundle 'Lokaltog/vim-easymotion'
+"Bundle 'laurilehmijoki/haskellmode-vim'
+"au BufNewFile,BufRead *.hs compiler ghc
+Bundle 'scrooloose/syntastic'
+Bundle 'bitc/vim-hdevtools'
+au FileType haskell noremap <buffer> \ht :HdevtoolsType<CR>
+au FileType haskell noremap <buffer> \hc :HdevtoolsClear<CR>
+Bundle 'tpope/vim-foreplay'
+
 " Have syntax highlighting and non-vi features
 syntax on
 filetype plugin indent on
-set nocompatible
 
 " Indent without helping me.
 set autoindent
