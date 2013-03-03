@@ -88,5 +88,5 @@ URxvt*boldItalicFont:       xft:Monaco for Powerline:bold:italic:size=11
 
 URxvt.perl-ext-common:      default,url-select
 URxvt.keysym.M-u:           perl:url-select:select_next
-URxvt.urlLauncher:          chromium
-URxvt.underlineURLs:        true
+URxvt.url-select.launcher:  chromium
+URxvt.url-select.underline: true
