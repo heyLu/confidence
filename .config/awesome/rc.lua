@@ -259,7 +259,9 @@ globalkeys = awful.util.table.join(
 
 	 awful.key({ }, "XF86AudioMute", function() os.execute("amixer set Master toggle") end),
     awful.key({ }, "XF86AudioLowerVolume", function() os.execute("amixer set Master 5%-") end),
-    awful.key({ }, "XF86AudioRaiseVolume", function() os.execute("amixer set Master 5%+") end)
+    awful.key({ }, "XF86AudioRaiseVolume", function() os.execute("amixer set Master 5%+") end),
+
+    awful.key({ modkey, "Shift" }, "m", function() os.execute("quodlibet") end)
 )
 
 clientkeys = awful.util.table.join(
@@ -350,6 +352,8 @@ awful.rules.rules = {
     { rule = { class = "Chromium" },
       properties = { tag = tags[1][2] } },
     { rule = { class = "Pidgin" },
+      properties = { tag = tags[1][3] } },
+    { rule = { class = "Empathy" },
       properties = { tag = tags[1][3] } }
 }
 -- }}}
