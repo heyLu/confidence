@@ -8,7 +8,7 @@ import XMonad.Util.EZConfig (additionalKeys)
 import System.IO (hPutStrLn)
 import Data.IORef.MonadIO (newIORef, readIORef, modifyIORef)
 
-import Monad (when)
+import Control.Monad (when)
 import Data.Monoid (All (All))
 import qualified XMonad.StackSet as W
 
