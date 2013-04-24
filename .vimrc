@@ -14,6 +14,8 @@ Bundle 'bitc/vim-hdevtools'
 au FileType haskell noremap <buffer> \ht :HdevtoolsType<CR>
 au FileType haskell noremap <buffer> \hc :HdevtoolsClear<CR>
 Bundle 'tpope/vim-foreplay'
+Bundle 'airblade/vim-gitgutter'
+Bundle 'terryma/vim-multiple-cursors'
 
 " Have syntax highlighting and non-vi features
 syntax on
@@ -170,7 +172,7 @@ map <Space> :NERDTree<CR>
 map <c-b> :make<CR> " build
 " Fuzzy finding (http://thechangelog.com/post/15573551543)
 noremap <C-e> :CtrlP<CR>
-noremap <C-p> :tabnew<CR>:CtrlP<CR>
+"noremap <C-p> :tabnew<CR>:CtrlP<CR>
 map <c-f> :!ack
 nmap <c-a> :w<CR>
 map <Leader>t :TagbarToggle<CR>
