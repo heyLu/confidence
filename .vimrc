@@ -1,21 +1,24 @@
 set nocompatible
 filetype off
 
-set rtp+=~/.vim/bundle/vundle
-call vundle#rc()
+if isdirectory('~/.vim/bundle/vundle')
+	set runtimepath+=~/.vim/bundle/vundle
+	call vundle#rc()
 
-Bundle 'gmarik/vundle'
-Bundle 'Valloric/YouCompleteMe'
-Bundle 'Lokaltog/vim-easymotion'
-"Bundle 'laurilehmijoki/haskellmode-vim'
-"au BufNewFile,BufRead *.hs compiler ghc
-Bundle 'scrooloose/syntastic'
-Bundle 'bitc/vim-hdevtools'
-au FileType haskell noremap <buffer> \ht :HdevtoolsType<CR>
-au FileType haskell noremap <buffer> \hc :HdevtoolsClear<CR>
-Bundle 'tpope/vim-foreplay'
-Bundle 'airblade/vim-gitgutter'
-Bundle 'terryma/vim-multiple-cursors'
+	Bundle 'gmarik/vundle'
+	Bundle 'Valloric/YouCompleteMe'
+	Bundle 'Lokaltog/vim-easymotion'
+	"Bundle 'laurilehmijoki/haskellmode-vim'
+	"au BufNewFile,BufRead *.hs compiler ghc
+	Bundle 'scrooloose/syntastic'
+	Bundle 'bitc/vim-hdevtools'
+	au FileType haskell noremap <buffer> \ht :HdevtoolsType<CR>
+	au FileType haskell noremap <buffer> \hc :HdevtoolsClear<CR>
+	Bundle 'tpope/vim-foreplay'
+
+	Bundle 'airblade/vim-gitgutter'
+	Bundle 'terryma/vim-multiple-cursors'
+endif
 
 " Have syntax highlighting and non-vi features
 syntax on
@@ -104,26 +107,27 @@ au BufNewFile,BufRead *.{opa,trx} set filetype=opa shiftwidth=2 tabstop=2 expand
 " Don't let me further than 1 line towards the end or the beginning.
 set scrolloff=1
 
-"""
-call pathogen#infect('~/t/vim/')
-call pathogen#infect('~/t/rust/src/etc/')
-let g:ctrlp_custom_ignore = {
-	\ 'dir': '\.git$'
-\ }
-let g:ctrlp_prompt_mappings = {
-	\ 'PrtClearCache': ['<F12>']
-\ }
-call pathogen#infect('~/t/notmuch/')
-call pathogen#infect('~/t/vim/clojure')
-let g:vimclojure#ParenRainbow=1
-let g:vimclojure#NailgunClient="/home/lu/t/vim/clojure/client/ng"
-let g:vimclojure#WantNailgun=0
+if exists("pathogen")
+	call pathogen#infect('~/t/vim/')
+	call pathogen#infect('~/t/rust/src/etc/')
+	let g:ctrlp_custom_ignore = {
+		\ 'dir': '\.git$'
+	\ }
+	let g:ctrlp_prompt_mappings = {
+		\ 'PrtClearCache': ['<F12>']
+	\ }
+	call pathogen#infect('~/t/notmuch/')
+	call pathogen#infect('~/t/vim/clojure')
+	let g:vimclojure#ParenRainbow=1
+	let g:vimclojure#NailgunClient="/home/lu/t/vim/clojure/client/ng"
+	let g:vimclojure#WantNailgun=0
 
-" soo beautiful! :)
-set background=dark
-let g:solarized_termtrans  = 0
-let g:solarized_termcolors = 16
-colorscheme solarized
+	" soo beautiful! :)
+	set background=dark
+	let g:solarized_termtrans  = 0
+	let g:solarized_termcolors = 16
+	colorscheme solarized
+endif
 
 " Show whitespace
 set list
