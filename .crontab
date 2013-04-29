@@ -1,0 +1,3 @@
+10 * * * * offlineimap -u ttyui > /home/lu/.offlineimap.log
+*  * * * * /home/lu/.bin/warn-if-low.sh
+*  * * * * date --rfc-3339=seconds >> /home/lu/.pings
