@@ -11,6 +11,7 @@ nm-applet&
 #conky&
 
 #xmodmap ~/.swap-esc-capslock
+synclient TouchpadOff=1
 
 exec awesome
 #exec xmonad
