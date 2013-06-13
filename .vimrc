@@ -44,8 +44,6 @@ set nopaste
 set pastetoggle=<F12>
 
 set number " With numbertoggle they're quite cool (I think)
-set cursorcolumn
-hi cursorcolumn cterm=NONE ctermbg=white
 
 " Copy indent of the last line.
 set copyindent
