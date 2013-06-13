@@ -1,7 +1,7 @@
 set nocompatible
 filetype off
 
-if isdirectory('~/.vim/bundle/vundle')
+if isdirectory($HOME . '/.vim/bundle/vundle')
 	set runtimepath+=~/.vim/bundle/vundle
 	call vundle#rc()
 
