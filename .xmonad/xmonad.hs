@@ -8,12 +8,12 @@ import XMonad.Layout.Fullscreen (fullscreenEventHook, fullscreenManageHook)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeys)
 import Graphics.X11.ExtraTypes.XF86
+import qualified XMonad.StackSet as W
 
 import System.IO (hPutStrLn)
 import Data.IORef.MonadIO (newIORef, readIORef, modifyIORef)
 import Control.Monad (when)
 import Data.Monoid (All (All))
-import qualified XMonad.StackSet as W
 
 -- My XMonad config (right now it's mostly copied from elsewhere...
 --
