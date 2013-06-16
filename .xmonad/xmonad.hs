@@ -1,4 +1,5 @@
 import XMonad
+import XMonad.Actions.SpawnOn (manageSpawn, spawnHere)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks (manageDocks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
@@ -26,6 +27,7 @@ main = do
         terminal = "urxvt",
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
+                        manageSpawn,
                         manageDocks,
                         -- Allow fullscreen
                         composeOne [ isFullscreen -?> doFullFloat ]
@@ -38,7 +40,8 @@ main = do
         },
         handleEventHook = evHook
      } `additionalKeys` [
-        ((mod4Mask, xK_l), changeKbMap kbMap)
+        ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
+        ((mod4Mask .|. shiftMask, xK_b), spawnHere "chromium --incognito --allow-file-access-from-files")
      ]
   where changeKbMap kbMap = do
           kb <- readIORef kbMap
