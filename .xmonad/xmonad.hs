@@ -31,6 +31,7 @@ main = do
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
                         className ?? (\cn -> any (cn ==) ["Skype", "Pidgin", "Geary"]) --> doF (W.shift "3"),
+                        className =? "Exe" --> doFullFloat,
                         manageSpawn,
                         manageDocks,
                         fullscreenManageHook
