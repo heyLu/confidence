@@ -3,7 +3,6 @@ import XMonad.Actions.SpawnOn (manageSpawn, spawnHere)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks (manageDocks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
-import XMonad.Layout.Tabbed (simpleTabbed)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeys)
 import System.IO (hPutStrLn)
@@ -32,7 +31,7 @@ main = do
                         composeOne [ isFullscreen -?> doFullFloat ]
                      ] <+> manageHook defaultConfig,
         -- Don't overwrite the section used by docks
-        layoutHook = avoidStruts $ layoutHook defaultConfig ||| simpleTabbed,
+        layoutHook = avoidStruts $ layoutHook defaultConfig,
         handleEventHook = evHook
      } `additionalKeys` [
         ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
