@@ -37,8 +37,11 @@ main = do
      } `additionalKeys` [
         ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
         ((mod4Mask .|. shiftMask, xK_b), spawnHere "chromium --incognito --allow-file-access-from-files"),
+
         ((mod4Mask .|. shiftMask, xK_Tab), changeKbMap kbMap),
-        ((mod4Mask .|. shiftMask, xK_l), spawn "slock")
+        ((mod4Mask .|. shiftMask, xK_l), spawn "slock"),
+
+        ((mod4Mask, xK_q), restart "xmonad" True)
      ]
   where changeKbMap kbMap = do
           kb <- readIORef kbMap
