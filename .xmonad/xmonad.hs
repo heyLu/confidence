@@ -3,6 +3,8 @@ import XMonad.Actions.SpawnOn (manageSpawn, spawnHere)
 import XMonad.Hooks.DynamicLog
 import XMonad.Hooks.ManageDocks (manageDocks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
+import XMonad.Layout.NoBorders (smartBorders)
+import XMonad.Layout.Fullscreen (fullscreenEventHook, fullscreenManageHook)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeys)
 import System.IO (hPutStrLn)
@@ -27,12 +29,11 @@ main = do
         manageHook = composeAll [
                         manageSpawn,
                         manageDocks,
-                        -- Allow fullscreen
-                        composeOne [ isFullscreen -?> doFullFloat ]
+                        fullscreenManageHook
                      ] <+> manageHook defaultConfig,
         -- Don't overwrite the section used by docks
-        layoutHook = avoidStruts $ layoutHook defaultConfig,
-        handleEventHook = evHook
+        layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig,
+        handleEventHook = fullscreenEventHook
      } `additionalKeys` [
         ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
         ((mod4Mask .|. shiftMask, xK_b), spawnHere "chromium --incognito --allow-file-access-from-files"),
