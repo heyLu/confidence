@@ -21,7 +21,6 @@ import qualified XMonad.StackSet as W
 
 main = do
     kbMap <- newIORef "us"
-    xmobar <- spawnPipe "xmobar"
     xmonad $ defaultConfig {
         modMask  = mod4Mask,
         terminal = "urxvt",
@@ -34,10 +33,6 @@ main = do
                      ] <+> manageHook defaultConfig,
         -- Don't overwrite the section used by docks
         layoutHook = avoidStruts $ layoutHook defaultConfig ||| simpleTabbed,
-        logHook = dynamicLogWithPP xmobarPP {
-            ppOutput = hPutStrLn xmobar,
-            ppTitle = xmobarColor "green" ""
-        },
         handleEventHook = evHook
      } `additionalKeys` [
         ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
