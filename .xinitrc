@@ -13,6 +13,6 @@ nm-applet&
 #xmodmap ~/.swap-esc-capslock
 synclient TouchpadOff=1
 
-exec awesome
-#exec xmonad
+#exec awesome
+exec xmonad
 #exec gnome-session
