@@ -22,7 +22,7 @@ main = do
     kbMap <- newIORef "us"
     xmonad $ defaultConfig {
         modMask  = mod4Mask,
-        terminal = "urxvt",
+        terminal = "sakura",
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
                         manageSpawn,
