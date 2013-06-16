@@ -9,6 +9,7 @@ charge_rate=$(($charge_now * 100 / $charge_full ))
 
 online=`cat $charge_path/AC/online`
 
+echo "Battery is charged $charge_rate%"
 if [ "$online" = "0" -a $charge_rate -lt 5 ]; then
 	DISPLAY=:0 zenity --error --text "Whoopey: You're low on energy (only $charge_rate% left)!"
 fi
