@@ -7,9 +7,10 @@ import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Fullscreen (fullscreenEventHook, fullscreenManageHook)
 import XMonad.Util.Run (spawnPipe)
 import XMonad.Util.EZConfig (additionalKeys)
+import Graphics.X11.ExtraTypes.XF86
+
 import System.IO (hPutStrLn)
 import Data.IORef.MonadIO (newIORef, readIORef, modifyIORef)
-
 import Control.Monad (when)
 import Data.Monoid (All (All))
 import qualified XMonad.StackSet as W
@@ -42,6 +43,11 @@ main = do
      } `additionalKeys` [
         ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
         ((mod4Mask .|. shiftMask, xK_b), spawnHere "chromium --incognito --allow-file-access-from-files"),
+
+        ((0, xF86XK_AudioMute), spawn "amixer set Master toggle"),
+        ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-"),
+        ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+"),
+        ((mod4Mask .|. shiftMask, xK_m), spawnHere "quodlibet"),
 
         ((mod4Mask .|. shiftMask, xK_Tab), changeKbMap kbMap),
         ((mod4Mask .|. shiftMask, xK_l), spawn "slock"),
