@@ -20,6 +20,9 @@ import qualified XMonad.StackSet as W
 --  * Some kind of launcher
 --  * Logging framework (like reading urls from Firefox and the like)
 
+(??) :: Query a -> (a -> Bool) -> Query Bool
+q ?? p = fmap p q
+
 main = do
     kbMap <- newIORef "us"
     xmonad $ defaultConfig {
@@ -27,6 +30,7 @@ main = do
         terminal = "sakura",
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
+                        className ?? (\cn -> any (cn ==) ["Skype", "Pidgin", "Geary"]) --> doF (W.shift "3"),
                         manageSpawn,
                         manageDocks,
                         fullscreenManageHook
