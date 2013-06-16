@@ -21,7 +21,7 @@ import qualified XMonad.StackSet as W
 --  * Logging framework (like reading urls from Firefox and the like)
 
 (??) :: Query a -> (a -> Bool) -> Query Bool
-q ?? p = fmap p q
+(??) = flip fmap
 
 main = do
     kbMap <- newIORef "us"
