@@ -18,6 +18,7 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	Bundle 'tpope/vim-foreplay'
 
 	Bundle 'airblade/vim-gitgutter'
+	highlight SignColumn ctermbg=0
 	Bundle 'terryma/vim-multiple-cursors'
 endif
 
