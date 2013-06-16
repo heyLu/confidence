@@ -7,6 +7,7 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 
 	Bundle 'gmarik/vundle'
 	Bundle 'Valloric/YouCompleteMe'
+	let g:ycm_confirm_extra_conf = 0
 	Bundle 'Lokaltog/vim-easymotion'
 	"Bundle 'laurilehmijoki/haskellmode-vim'
 	"au BufNewFile,BufRead *.hs compiler ghc
