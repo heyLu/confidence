@@ -25,7 +25,6 @@ import Data.Monoid (All (All))
 (??) = flip fmap
 
 main = do
-    kbMap <- newIORef "us"
     xmonad $ defaultConfig {
         modMask  = mod4Mask,
         terminal = "sakura",
@@ -49,13 +48,8 @@ main = do
         ((0, xF86XK_AudioRaiseVolume), spawn "amixer set Master 5%+"),
         ((mod4Mask .|. shiftMask, xK_m), spawnHere "quodlibet"),
 
-        ((mod4Mask .|. shiftMask, xK_Tab), changeKbMap kbMap),
+        ((mod4Mask .|. shiftMask, xK_Tab), spawn "xkbswap"),
         ((mod4Mask .|. shiftMask, xK_l), spawn "slock"),
 
         ((mod4Mask, xK_q), restart "xmonad" True)
      ]
-  where changeKbMap kbMap = do
-          kb <- readIORef kbMap
-          let switchLang cur = if cur == "us" then "de" else "us"
-          spawn $ "setxkbmap " ++ switchLang kb
-          modifyIORef kbMap switchLang
