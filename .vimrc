@@ -6,7 +6,9 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	call vundle#rc()
 
 	Bundle 'gmarik/vundle'
-	Bundle 'Valloric/YouCompleteMe'
+	if has('python')
+		Bundle 'Valloric/YouCompleteMe'
+	endif
 	Bundle 'Lokaltog/vim-easymotion'
 	"Bundle 'laurilehmijoki/haskellmode-vim'
 	"au BufNewFile,BufRead *.hs compiler ghc
