@@ -32,7 +32,7 @@ function precmd {
 	user="%{$fg[red]%}%n%{$reset_color%}"
 	dir="%{$fg[cyan]%}%~%{$reset_color%}"
 	lastcmd="$history[$(($HISTCMD-1))]"
-	lastcmd_witherror="%(?.$lastcmd.%S$lastcmd%s)"
+	lastcmd_witherror="%(?.$lastcmd.%B$lastcmd%b)"
 	PROMPT="$user in $dir@$(repo_branch) $lastcmd_witherror
 $(repo_char) $ "
 	RPROMPT="%D{%Y-%m-%d} %{$fg[red]%}%t%{$reset_color%}"
