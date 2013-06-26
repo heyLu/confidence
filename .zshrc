@@ -29,6 +29,7 @@ function repo_branch {
 
 autoload colors && colors
 function precmd {
+	echo -ne "\033]0;\007"
 	user="%{$fg[red]%}%n%{$reset_color%}"
 	dir="%{$fg[cyan]%}%~%{$reset_color%}"
 	lastcmd="$history[$(($HISTCMD-1))]"
