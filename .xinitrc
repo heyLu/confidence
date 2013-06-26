@@ -5,6 +5,7 @@ xsetroot -cursor_name left_ptr
 xrdb -merge ~/.Xresources
 #feh -bg-scale /usr/share/themes/Adwaita/backgrounds/stripes.jpg
 
+eval `dbus-launch --auto-syntax`
 start-pulseaudio-x11
 pactl set-sink-volume 0 1.0
 nm-applet&
@@ -13,6 +14,6 @@ nm-applet&
 #xmodmap ~/.swap-esc-capslock
 synclient TouchpadOff=1
 
-exec awesome
-#exec xmonad
+#exec awesome
+exec xmonad
 #exec gnome-session
