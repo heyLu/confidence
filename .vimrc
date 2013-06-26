@@ -61,6 +61,12 @@ set directory=~/.vim/tmp/
 set undodir=~/.vim/tmp/
 set undofile
 
+let &t_ts = "\e]2;"
+let &t_fs = "\007"
+set title
+set titleold=
+au BufEnter * let &titlestring=substitute(expand('%:p'), '^' . $HOME, '~', '')
+
 " Wrap lines in textfiles automatically.
 " (Any way to enable in comments?)
 set textwidth=72
