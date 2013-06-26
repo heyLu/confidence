@@ -29,7 +29,7 @@ main = do
     dbusClient <- connectSession
     xmonad $ defaultConfig {
         modMask  = mod4Mask,
-        terminal = "sakura",
+        terminal = "sakura -x tmux",
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
                         className ?? (\cn -> any (cn ==) ["Skype", "Pidgin", "Geary"]) --> doF (W.shift "3"),
