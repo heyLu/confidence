@@ -55,6 +55,7 @@ set use_from=yes
 set envelope_from=yes
 
 auto_view text/html
+auto_view application/rar
 alternative_order text/plain text/html
 
 # labelling
