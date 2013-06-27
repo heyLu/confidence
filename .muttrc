@@ -65,6 +65,14 @@ set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)?  %?y?[%.20Y] ?%s"
 ## edit/move many messages
 macro index = <tag-prefix>
 macro index * <tag-entry>
+
+## special settings for individual folders
+folder-hook lu 'macro index A s=lu/INBOX.archived'
+folder-hook htwk 'macro index A s=htwk/archived'
+folder-hook htwk 'set from=lucas.stadler@stud.htwk-leipzig.de'
+folder-hook htwk.imn 'macro index A s=htwk.imn/archived'
+folder-hook htwk 'set from=lstadler@imn.htwk-leipzig.de'
+
 ## changing mailboxes
 bind  index n next-unread-mailbox
 
