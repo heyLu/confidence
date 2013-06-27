@@ -8,9 +8,16 @@ set postponed="+postponed"
 set record="+lu/INBOX.Sent"
 set sleep_time = 0 # faster mailbox switching
 
-mailboxes ! +lu/INBOX.Sent +lu/INBOX.Drafts
-mailboxes +htwk/INBOX
-mailboxes +htwk.imn/INBOX
+mailboxes +lu/lu \
+          +lu.sprd/lu.sprd \
+          +htwk/htwk \
+          +htwk.imn/htwk.imn \
+          +temporary/search
+
+alternates lu@papill0n.org \
+           work-with-lu@papill0n.org \
+           lstadler@imn.htwk-leipzig.de \
+           lucas.stadler@stud.htwk-leipzig.de
 
 set edit_headers=yes
 
