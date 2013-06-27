@@ -14,6 +14,8 @@ nm-applet&
 #xmodmap ~/.swap-esc-capslock
 synclient TouchpadOff=1
 
+taffybar&
+
 #exec awesome
 exec xmonad
 #exec gnome-session
