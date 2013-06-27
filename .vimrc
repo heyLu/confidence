@@ -22,6 +22,8 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	Bundle 'airblade/vim-gitgutter'
 	highlight SignColumn ctermbg=0
 	Bundle 'terryma/vim-multiple-cursors'
+
+	Bundle 'marijnh/tern_for_vim'
 endif
 
 " Have syntax highlighting and non-vi features
