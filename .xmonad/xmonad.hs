@@ -2,7 +2,7 @@ import XMonad
 import XMonad.Actions.SpawnOn (manageSpawn, spawnHere)
 import DBus.Client (connectSession)
 import System.Taffybar.XMonadLog (dbusLog)
-import XMonad.Hooks.ManageDocks (manageDocks, avoidStruts)
+import XMonad.Hooks.ManageDocks (ToggleStruts(..), manageDocks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Fullscreen (fullscreenEventHook, fullscreenManageHook)
@@ -54,5 +54,6 @@ main = do
         ((mod4Mask .|. shiftMask, xK_Tab), spawn "xkbswap"),
         ((mod4Mask .|. shiftMask, xK_l), spawn "slock"),
 
+        ((mod4Mask, xK_f), sendMessage ToggleStruts),
         ((mod4Mask, xK_q), restart "xmonad" True)
      ]
