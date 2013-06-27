@@ -66,9 +66,6 @@ set index_format="%4C %Z %{%b %d} %-15.15L %?M?(#%03M)&(%4l)?  %?y?[%.20Y] ?%s"
 macro index = <tag-prefix>
 macro index * <tag-entry>
 ## changing mailboxes
-macro index 1 "<change-folder>=lu/INBOX<enter>"
-macro index 2 "<change-folder>=htwk.imn/INBOX<enter>"
-macro index 3 "<change-folder>=htwk/INBOX<enter>"
 bind  index n next-unread-mailbox
 
 # colors
