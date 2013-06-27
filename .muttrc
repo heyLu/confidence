@@ -21,6 +21,33 @@ alternates lu@papill0n.org \
 
 set edit_headers=yes
 
+# index view settings
+set date_format = "%m/%d"
+set index_format = "[%Z]  %D  %-20.20F  %s"
+set sort = threads
+set sort_aux = reverse-last-date-received
+set uncollapse_jump
+set sort_re
+set reply_regexp = "^(([RrAa][EeWw]?(\[[0-9]+\])?: *)?(\[[^]]+\] *)?)*"
+set markers=no
+
+bind index <space> collapse-thread
+
+macro index C "<copy-message>?<toggle-mailboxes>" "copy a message to a mailbox"
+macro index M "<save-message>?<toggle-mailboxes>" "move a message to a mailbox"
+
+# sidebar
+set sidebar_visible   = yes
+set sidebar_width     = 24
+set sidebar_shortpath = yes
+
+bind index,pager <esc>j        sidebar-next
+bind index,pager <esc>k        sidebar-prev
+bind index,pager <esc><return> sidebar-open
+
+set status_chars  = " *%A"
+set status_format = "───[ %f ]───[%r%m messages%?n? (%n new)?%?d? (%d to delete)?%?t? (%t tagged)? ]───%>─%?p?( %p postponed )?───"
+
 # msmtp
 set sendmail="/usr/bin/msmtp -a lu"
 set from="lu@papill0n.org"
