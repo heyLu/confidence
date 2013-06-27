@@ -76,5 +76,8 @@ folder-hook htwk 'set from=lstadler@imn.htwk-leipzig.de'
 ## changing mailboxes
 bind  index n next-unread-mailbox
 
+## searching using notmuch
+macro index S "<enter-command>unset wait_key<enter><shell-escape>mutt-notmuch.py ~/.mails/temporary/search<enter><change-folder-readonly>+temporary/search<enter>" "search mail (using notmuch)"
+
 # colors
 source $HOME/t/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
