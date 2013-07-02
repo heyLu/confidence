@@ -1,3 +1,5 @@
 10 * * * * offlineimap -u ttyui > /home/lu/.offlineimap.log
 *  * * * * /home/lu/.bin/warn-if-low.sh
 *  * * * * date --rfc-3339=seconds >> /home/lu/.pings
+
+* 0-7,19-23 * * * DISPLAY=:0 zenity --error --text "get off the computer!"
