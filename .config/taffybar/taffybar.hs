@@ -1,4 +1,5 @@
 import System.Taffybar
+import System.Taffybar.Battery
 import System.Taffybar.Systray
 import System.Taffybar.XMonadLog
 import System.Taffybar.SimpleClock
@@ -17,8 +18,9 @@ main = do
         log = xmonadLogNew
         tray = systrayNew
         cpu = pollingGraphNew cpuCfg 3 cpuCallback
+        battery = textBatteryNew "%d%%" 30
     defaultTaffybar defaultTaffybarConfig {
         barHeight = 15,
         startWidgets = [log],
-        endWidgets = [tray, clock, cpu]
+        endWidgets = [tray, clock, battery, cpu]
     }
