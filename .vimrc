@@ -98,7 +98,6 @@ function! ToggleFocusMode()
     set showtabline=0
     hi FoldColumn ctermbg=none
     hi LineNr ctermfg=0 ctermbg=none
-    hi NonText ctermfg=0
   else
     set laststatus=2
     set numberwidth=4
