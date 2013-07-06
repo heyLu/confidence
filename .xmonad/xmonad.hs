@@ -54,6 +54,8 @@ main = do
         ((mod4Mask .|. shiftMask, xK_Tab), spawn "xkbswap"),
         ((mod4Mask .|. shiftMask, xK_l), spawn "slock"),
 
+        ((0, xK_Print), spawn "scrot -e 'mv $f ~/m/pictures/ 2>/dev/null'"),
+
         ((mod4Mask, xK_f), sendMessage ToggleStruts),
         ((mod4Mask, xK_q), restart "xmonad" True)
      ]
