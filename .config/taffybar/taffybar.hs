@@ -11,7 +11,7 @@ import Graphics.UI.Gtk (widgetShowAll)
 
 cpuCallback = do
     (_, systemLoad, totalLoad) <- cpuLoad
-    return [ totalLoad, systemLoad ]
+    return [totalLoad, systemLoad]
 
 formatMeminfo m = "Mem: " ++ memPercentage ++ "%"
     where memPercentage = show . truncate . ((*) 100) $ memoryUsedRatio m
