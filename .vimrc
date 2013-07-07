@@ -24,6 +24,10 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	Bundle 'terryma/vim-multiple-cursors'
 
 	Bundle 'marijnh/tern_for_vim'
+	au FileType javascript nnoremap <buffer> gd :TernDef<cr>
+	au FileType javascript nnoremap <buffer> gu :TernRefs<cr>
+	au FileType javascript nnoremap <buffer> gt :TernType<cr>
+	au FileType javascript nnoremap <buffer> cw :TernRename<cr>
 endif
 
 " Have syntax highlighting and non-vi features
