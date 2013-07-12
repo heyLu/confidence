@@ -4,6 +4,7 @@ import DBus.Client (connectSession)
 import System.Taffybar.XMonadLog (dbusLog)
 import XMonad.Hooks.ManageDocks (ToggleStruts(..), manageDocks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
+import XMonad.Hooks.SetWMName
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Fullscreen (fullscreenEventHook, fullscreenManageHook)
 import XMonad.Util.Run (spawnPipe)
@@ -30,6 +31,7 @@ main = do
     xmonad $ defaultConfig {
         modMask  = mod4Mask,
         terminal = "sakura -x tmux",
+        startupHook = setWMName "LG3D",
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
                         className ?? (\cn -> any (cn ==) ["Skype", "Pidgin", "Geary"]) --> doF (W.shift "3"),
