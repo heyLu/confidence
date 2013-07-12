@@ -36,6 +36,7 @@ main = do
         manageHook = composeAll [
                         className ?? (\cn -> any (cn ==) ["Skype", "Pidgin", "Geary"]) --> doF (W.shift "3"),
                         className =? "Exe" --> doFullFloat,
+                        className =? "Zenity" --> doFloat,
                         manageSpawn,
                         manageDocks,
                         fullscreenManageHook
