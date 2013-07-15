@@ -28,6 +28,8 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	au FileType javascript nnoremap <buffer> gu :TernRefs<cr>
 	au FileType javascript nnoremap <buffer> gt :TernType<cr>
 	au FileType javascript nnoremap <buffer> cw :TernRename<cr>
+
+	Bundle 'guns/vim-clojure-static'
 endif
 
 " Have syntax highlighting and non-vi features
