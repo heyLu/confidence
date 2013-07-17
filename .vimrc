@@ -17,7 +17,7 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	Bundle 'bitc/vim-hdevtools'
 	au FileType haskell noremap <buffer> \ht :HdevtoolsType<CR>
 	au FileType haskell noremap <buffer> \hc :HdevtoolsClear<CR>
-	Bundle 'tpope/vim-foreplay'
+	Bundle 'tpope/vim-fireplace'
 
 	Bundle 'airblade/vim-gitgutter'
 	highlight SignColumn ctermbg=0
