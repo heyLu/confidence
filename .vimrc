@@ -30,6 +30,7 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	au FileType javascript nnoremap <buffer> cw :TernRename<cr>
 
 	Bundle 'guns/vim-clojure-static'
+	Bundle 'kchmck/vim-coffee-script'
 endif
 
 " Have syntax highlighting and non-vi features
