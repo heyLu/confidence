@@ -30,7 +30,7 @@ main = do
     dbusClient <- connectSession
     xmonad $ defaultConfig {
         modMask  = mod4Mask,
-        terminal = "sakura -x tmux",
+        terminal = "sakura",
         startupHook = setWMName "LG3D",
         -- Ignore docks (via some WM_* attribute?)
         manageHook = composeAll [
