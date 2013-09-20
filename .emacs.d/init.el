@@ -6,5 +6,7 @@
   '("marmalade" .
     "http://marmalade-repo.org/packages/"))
 
+(add-hook 'clojure-mode-hook 'paredit-mode)
+
 (custom-set-variables
  '(initial-buffer-choice (get-buffer "*scratch*")))
