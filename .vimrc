@@ -31,6 +31,8 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 
 	Bundle 'guns/vim-clojure-static'
 	Bundle 'kchmck/vim-coffee-script'
+
+	Bundle 'junegunn/goyo.vim'
 endif
 
 " Have syntax highlighting and non-vi features
@@ -94,27 +96,6 @@ function! g:setTextWidthInComments()
 	endif
 endfunction
 "autocmd CursorMoved * :call g:setTextWidthInComments()
-
-" via <http://paulrouget.com/e/vimdarkroom>
-function! ToggleFocusMode()
-  if (&foldcolumn != 12)
-    set laststatus=0
-    set numberwidth=10
-    set foldcolumn=12
-    set noruler
-    set showtabline=0
-    hi FoldColumn ctermbg=none
-    hi LineNr ctermfg=0 ctermbg=none
-  else
-    set laststatus=2
-    set numberwidth=4
-    set foldcolumn=0
-    set ruler
-    set showtabline=1
-    colorscheme solarized
-  endif
-endfunc
-nnoremap F :call ToggleFocusMode()<cr>
 
 au BufNewFile,BufRead *.{hs,lhs} set comments=:--,sr:{-,ex:-}
 au BufNewFile,BufRead *.rb set comments=:#,s:=begin,e:=end
