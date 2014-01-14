@@ -1,1 +1,1 @@
-gem: --local --no-ri --no-rdoc
+gem: --both --no-ri --no-rdoc
