@@ -1,0 +1,9 @@
+alias ls='ls --group-directories-first --color=auto'
+
+# shortcuts
+alias tomorrow="vim ~/d/tomorrow -c ':Goyo'"
+alias v="vim -c ':Goyo'"
+
+# projects
+alias clarity="cd ~/k/lp/clj/clarity"
+alias pixl="cd ~/k/lp/js/pixl"
