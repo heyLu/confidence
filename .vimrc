@@ -33,6 +33,14 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	Bundle 'kchmck/vim-coffee-script'
 
 	Bundle 'junegunn/goyo.vim'
+	function! g:goyo_before()
+		set noshowmode
+	endfunction
+
+	function! g:goyo_after()
+		set showmode
+	endfunction
+	let g:goyo_callbacks = [function('g:goyo_before'), function('g:goyo_after')]
 endif
 
 " Have syntax highlighting and non-vi features
