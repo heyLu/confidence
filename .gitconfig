@@ -26,5 +26,7 @@
 	insteadOf = fd:
 [url "git@bitbucket.org:"]
 	insteadOf = bb:
+[url "git@git.papill0n.org:/srv/git/repos/"]
+	insteadOf = p0n:
 [push]
 	default = simple
