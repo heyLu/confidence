@@ -55,7 +55,7 @@ main = do
         ((mod4Mask .|. shiftMask, xK_m), spawnHere "quodlibet"),
 
         ((mod4Mask .|. shiftMask, xK_Tab), spawn "xkbswap"),
-        ((mod4Mask .|. shiftMask, xK_l), spawn "slock"),
+        ((mod4Mask .|. shiftMask, xK_l), spawn "ssh-add -D && slock"),
 
         ((0, xK_Print), spawn "scrot -e 'mv $f ~/m/pictures/ 2>/dev/null'"),
 

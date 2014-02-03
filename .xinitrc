@@ -16,5 +16,7 @@ synclient TouchpadOff=1
 
 taffybar&
 
+eval $(ssh-agent -s)
+
 exec xmonad
 #exec gnome-session
