@@ -2,7 +2,6 @@
 
 xsetroot -cursor_name left_ptr
 
-xrdb -merge ~/.Xresources
 #feh -bg-scale /usr/share/themes/Adwaita/backgrounds/stripes.jpg
 
 eval `dbus-launch --auto-syntax`
