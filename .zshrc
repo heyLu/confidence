@@ -12,6 +12,7 @@ compinit
 HISTFILE=~/.zsh_history
 HISTSIZE=100000
 SAVEHIST=100000
+setopt -o sharehistory
 setopt autocd extendedglob
 # End of lines configured by zsh-newuser-install
 
