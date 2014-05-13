@@ -3,6 +3,7 @@ alias ls='ls --group-directories-first --color=auto'
 # shortcuts
 alias tomorrow="vim ~/d/tomorrow -c ':Goyo'"
 alias v="vim -c ':Goyo'"
+alias b="firefox"
 
 # projects
 alias clarity="cd ~/k/lp/clj/clarity"
