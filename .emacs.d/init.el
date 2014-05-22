@@ -11,4 +11,5 @@
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
 (custom-set-variables
- '(initial-buffer-choice (get-buffer "*scratch*")))
+ '(initial-buffer-choice (get-buffer "*scratch*"))
+ '(haskell-mode-hook '(turn-on-haskell-simple-indent)))
