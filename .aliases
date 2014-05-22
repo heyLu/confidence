@@ -4,6 +4,7 @@ alias ls='ls --group-directories-first --color=auto'
 alias tomorrow="vim ~/d/tomorrow -c ':Goyo'"
 alias v="vim -c ':Goyo'"
 alias b="firefox"
+alias wn="sdcv --use-dict=WordNet"
 
 # projects
 alias clarity="cd ~/k/lp/clj/clarity"
