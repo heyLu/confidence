@@ -4,6 +4,8 @@
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "backups"))))
 
+(setq ido-auto-merge-delay-time 9999)
+
 (require 'package)
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.milkbox.net/packages/"))
