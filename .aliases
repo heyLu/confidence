@@ -5,6 +5,7 @@ alias tomorrow="vim ~/d/tomorrow -c ':Goyo'"
 alias v="vim -c ':Goyo'"
 alias b="firefox"
 alias wn="sdcv --use-dict=WordNet"
+alias wb="sdcv --use-dict=\"Webster's Revised Unabridged Dictionary (1913)\""
 
 # projects
 alias clarity="cd ~/k/lp/clj/clarity"
