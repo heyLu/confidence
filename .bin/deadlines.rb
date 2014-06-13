@@ -7,7 +7,7 @@ def ask_for_task()
 end
 
 def parse_task(task_answer)
-  task_name, task_duration = task_answer.split('|')
+  task_name, task_duration = task_answer.strip().split('|')
   duration = parse_duration(task_duration)
   {name: task_name, end: Time.now + duration}
 end
