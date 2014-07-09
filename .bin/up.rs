@@ -1,13 +1,15 @@
+use std::os;
+
 fn main() {
-	let path = copy os::args()[1];
-	let mut cwd = Path("");
-	while cwd != Path("/") {
+	let path = Path::new(os::args().get(1).as_slice());
+	let mut cwd = Path::new("");
+	while cwd != Path::new("/") {
 		cwd = os::getcwd();
-		if Path(path).exists() {
-			io::println(cwd.to_str());
+		if path.exists() {
+			println!("{}", cwd.display());
 			return;
 		} else {
-			os::change_dir(&Path(".."));
+			os::change_dir(&Path::new(".."));
 		}
 	}
 
