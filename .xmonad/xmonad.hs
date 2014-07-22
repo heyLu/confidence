@@ -1,10 +1,10 @@
 import XMonad
 import XMonad.Actions.SpawnOn (manageSpawn, spawnHere)
-import DBus.Client (connectSession)
-import System.Taffybar.XMonadLog (dbusLog)
+import System.Taffybar.Hooks.PagerHints (pagerHints)
 import XMonad.Hooks.ManageDocks (ToggleStruts(..), manageDocks, avoidStruts)
 import XMonad.Hooks.ManageHelpers
 import XMonad.Hooks.SetWMName
+import XMonad.Hooks.EwmhDesktops (ewmh)
 import XMonad.Layout.NoBorders (smartBorders)
 import XMonad.Layout.Fullscreen (fullscreenEventHook, fullscreenManageHook)
 import XMonad.Util.Run (spawnPipe)
@@ -27,8 +27,7 @@ import Data.Monoid (All (All))
 (??) = flip fmap
 
 main = do
-    dbusClient <- connectSession
-    xmonad $ defaultConfig {
+    xmonad $ ewmh $ pagerHints $ defaultConfig {
         modMask  = mod4Mask,
         terminal = "sakura",
         startupHook = setWMName "LG3D",
@@ -43,8 +42,7 @@ main = do
                      ] <+> manageHook defaultConfig,
         -- Don't overwrite the section used by docks
         layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig,
-        handleEventHook = fullscreenEventHook,
-        logHook = dbusLog dbusClient
+        handleEventHook = fullscreenEventHook
      } `additionalKeys` [
         ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
         ((mod4Mask .|. shiftMask, xK_b), spawnHere "chromium --incognito --allow-file-access-from-files"),
