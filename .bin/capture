@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$1" = "" ]; then
+	prefix=""
+else
+	prefix="$1-"
+fi
+
+scrot -s -e "mv \$f ~/m/pictures/$prefix\$f"
