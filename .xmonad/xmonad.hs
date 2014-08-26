@@ -44,8 +44,8 @@ main = do
         layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig,
         handleEventHook = fullscreenEventHook
      } `additionalKeys` [
-        ((mod4Mask, xK_b), spawnHere "chromium --allow-file-access-from-files"),
-        ((mod4Mask .|. shiftMask, xK_b), spawnHere "chromium --incognito --allow-file-access-from-files"),
+        ((mod4Mask, xK_b), spawnHere "firefox"),
+        ((mod4Mask .|. shiftMask, xK_b), spawnHere "firefox -private-window"),
 
         ((0, xF86XK_AudioMute), spawn "amixer set Master toggle"),
         ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-"),
