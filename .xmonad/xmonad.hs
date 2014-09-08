@@ -43,7 +43,7 @@ main = do
         -- Don't overwrite the section used by docks
         layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig,
         handleEventHook = fullscreenEventHook
-     } `additionalKeys` [
+     } `additionalKeys` ([
         ((mod4Mask, xK_b), spawnHere "firefox"),
         ((mod4Mask .|. shiftMask, xK_b), spawnHere "firefox -private-window"),
 
@@ -59,4 +59,6 @@ main = do
 
         ((mod4Mask, xK_f), sendMessage ToggleStruts),
         ((mod4Mask, xK_q), restart "xmonad" True)
-     ]
+     ] ++ [ ( (m .|. mod4Mask, k), windows $ f i)
+            | (i, k) <- zip (map show [1..9]) [xK_1 .. xK_9]
+            , (f, m) <- [(W.view, 0), (W.shift, shiftMask)]])
