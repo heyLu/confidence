@@ -7,6 +7,8 @@ alias b="firefox"
 alias wn="sdcv --use-dict=WordNet"
 alias wb="sdcv --use-dict=\"Webster's Revised Unabridged Dictionary (1913)\""
 
+alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
+
 # projects
 alias clarity="cd ~/k/lp/clj/clarity"
 alias pixl="cd ~/k/lp/js/pixl"
