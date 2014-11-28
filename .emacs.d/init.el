@@ -14,6 +14,11 @@
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
+(define-derived-mode pixie-mode clojure-mode "Pixie"
+  "Major mode for editing Pixie files"
+  (setq-local inferior-lisp-program "pixie-vm"))
+(add-to-list 'auto-mode-alist '("\\.pxi\\'" . pixie-mode))
+
 (custom-set-variables
  '(initial-buffer-choice (get-buffer "*scratch*"))
  '(haskell-mode-hook '(turn-on-haskell-simple-indent)))
