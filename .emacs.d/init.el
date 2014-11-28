@@ -21,5 +21,6 @@
 
 (custom-set-variables
  '(global-auto-revert-mode t)
+ '(haskell-mode-hook (quote (turn-on-haskell-simple-indent)))
  '(initial-buffer-choice (get-buffer "*scratch*"))
  '(haskell-mode-hook '(turn-on-haskell-simple-indent)))
