@@ -20,5 +20,6 @@
 (add-to-list 'auto-mode-alist '("\\.pxi\\'" . pixie-mode))
 
 (custom-set-variables
+ '(global-auto-revert-mode t)
  '(initial-buffer-choice (get-buffer "*scratch*"))
  '(haskell-mode-hook '(turn-on-haskell-simple-indent)))
