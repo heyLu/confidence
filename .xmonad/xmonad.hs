@@ -26,6 +26,12 @@ import Data.Monoid (All (All))
 (??) :: Query a -> (a -> Bool) -> Query Bool
 (??) = flip fmap
 
+myLayout = Full ||| tiled ||| Mirror tiled
+    where tiled = Tall nmaster delta ratio
+          nmaster = 1
+          ratio = 1/2
+          delta = 3/100
+
 main = do
     xmonad $ ewmh $ pagerHints $ defaultConfig {
         modMask  = mod4Mask,
@@ -41,7 +47,7 @@ main = do
                         fullscreenManageHook
                      ] <+> manageHook defaultConfig,
         -- Don't overwrite the section used by docks
-        layoutHook = avoidStruts $ smartBorders $ layoutHook defaultConfig,
+        layoutHook = avoidStruts $ smartBorders $ myLayout,
         handleEventHook = fullscreenEventHook
      } `additionalKeys` ([
         ((mod4Mask, xK_b), spawnHere "firefox"),
