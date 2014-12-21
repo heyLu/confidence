@@ -1,6 +1,9 @@
 ; Mhh, let's see where this goes. (I hope I don't grow a beard.)
 (load "~/.emacs.d/better-defaults")
 
+(setq initial-major-mode 'text-mode)
+(setq initial-scratch-message "<3")
+
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "backups"))))
 
