@@ -52,6 +52,7 @@ main = do
      } `additionalKeys` ([
         ((mod4Mask, xK_b), spawnHere "firefox"),
         ((mod4Mask .|. shiftMask, xK_b), spawnHere "firefox -private-window"),
+        ((mod4Mask, xK_e), spawnHere "emacs"),
 
         ((0, xF86XK_AudioMute), spawn "amixer set Master toggle"),
         ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-"),
