@@ -2,7 +2,7 @@
 (load "~/.emacs.d/better-defaults")
 
 (setq initial-major-mode 'text-mode)
-(setq initial-scratch-message "<3")
+(setq initial-scratch-message nil)
 
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "backups"))))
