@@ -13,6 +13,8 @@
 (add-to-list 'package-archives '("marmalade" . "http://marmalade-repo.org/packages/"))
 (add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
 
+(add-hook 'before-save-hook #'gofmt-before-save)
+
 (add-to-list 'auto-mode-alist '("\\.edn\\'" . clojure-mode))
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
