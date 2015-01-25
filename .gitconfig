@@ -30,3 +30,5 @@
 	insteadOf = p0n:
 [push]
 	default = simple
+[pull]
+	ff = only
