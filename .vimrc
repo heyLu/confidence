@@ -6,10 +6,6 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	call vundle#rc()
 
 	Bundle 'gmarik/vundle'
-	if has('python')
-		Bundle 'Valloric/YouCompleteMe'
-		let g:ycm_confirm_extra_conf = 0
-	endif
 	Bundle 'Lokaltog/vim-easymotion'
 	"Bundle 'laurilehmijoki/haskellmode-vim'
 	"au BufNewFile,BufRead *.hs compiler ghc
@@ -19,15 +15,10 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	au FileType haskell noremap <buffer> \hc :HdevtoolsClear<CR>
 	Bundle 'tpope/vim-fireplace'
 
-	Bundle 'airblade/vim-gitgutter'
 	highlight SignColumn ctermbg=0
 	Bundle 'terryma/vim-multiple-cursors'
 
 	Bundle 'marijnh/tern_for_vim'
-	au FileType javascript nnoremap <buffer> gd :TernDef<cr>
-	au FileType javascript nnoremap <buffer> gu :TernRefs<cr>
-	au FileType javascript nnoremap <buffer> gt :TernType<cr>
-	au FileType javascript nnoremap <buffer> cw :TernRename<cr>
 
 	Bundle 'guns/vim-clojure-static'
 	Bundle 'kchmck/vim-coffee-script'
@@ -93,46 +84,12 @@ au BufEnter * let &titlestring=substitute(expand('%:p'), '^' . $HOME, '~', '')
 set textwidth=72
 au FileType text set textwidth=72
 
-function! g:setTextWidthInComments()
-	" Capture new position
-	let g:curTextPosition = synIDattr(synIDtrans(synID(line("."), col("."), 0)), "name")
-
-	if( g:curTextPosition == "Comment" || &ft == "markdown" || &ft == "" )
-		set textwidth=72
-	else
-		set textwidth=0
-	endif
-endfunction
-"autocmd CursorMoved * :call g:setTextWidthInComments()
-
 au BufNewFile,BufRead *.{hs,lhs} set comments=:--,sr:{-,ex:-}
 au BufNewFile,BufRead *.rb set comments=:#,s:=begin,e:=end
 au BufNewFile,BufRead *.{opa,trx} set filetype=opa shiftwidth=2 tabstop=2 expandtab
 
 " Don't let me further than 1 line towards the end or the beginning.
 set scrolloff=1
-
-if exists("pathogen")
-	call pathogen#infect('~/t/vim/')
-	call pathogen#infect('~/t/rust/src/etc/')
-	let g:ctrlp_custom_ignore = {
-		\ 'dir': '\.git$'
-	\ }
-	let g:ctrlp_prompt_mappings = {
-		\ 'PrtClearCache': ['<F12>']
-	\ }
-	call pathogen#infect('~/t/notmuch/')
-	call pathogen#infect('~/t/vim/clojure')
-	let g:vimclojure#ParenRainbow=1
-	let g:vimclojure#NailgunClient="/home/lu/t/vim/clojure/client/ng"
-	let g:vimclojure#WantNailgun=0
-
-	" soo beautiful! :)
-	set background=dark
-	let g:solarized_termtrans  = 0
-	let g:solarized_termcolors = 16
-	colorscheme solarized
-endif
 
 " Show whitespace
 set list
