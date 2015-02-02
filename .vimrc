@@ -57,6 +57,8 @@ set smarttab
 set nopaste
 set pastetoggle=<F12>
 
+set mouse=a
+
 set number " With numbertoggle they're quite cool (I think)
 
 " Copy indent of the last line.
@@ -116,6 +118,19 @@ noremap   <Up>     <NOP>
 noremap   <Down>   <NOP>
 noremap   <Left>   <NOP>
 noremap   <Right>  <NOP>
+" be a bit more like emacs
+cnoremap <C-a>  <Home>
+cnoremap <C-b>  <Left>
+cnoremap <C-f>  <Right>
+cnoremap <C-d>  <Delete>
+cnoremap <M-b>  <S-Left>
+cnoremap <M-f>  <S-Right>
+cnoremap <M-d>  <S-right><Delete>
+cnoremap <Esc>b <S-Left>
+cnoremap <Esc>f <S-Right>
+cnoremap <Esc>d <S-right><Delete>
+cnoremap <C-g>  <C-c>
+" navigate long lines easier
 noremap   j        gj
 noremap   k        gk
 " Move easier between windows
@@ -135,12 +150,13 @@ map <leader>ps :mksession! .project.vim
 map <leader>pl :source .project.vim
 " fancy maps
 map <Space> :NERDTree<CR>
+map <c-m> :!make<CR>
 map <c-b> :make<CR> " build
 " Fuzzy finding (http://thechangelog.com/post/15573551543)
-noremap <C-e> :CtrlP<CR>
+"noremap <C-e> :CtrlP<CR>
 "noremap <C-p> :tabnew<CR>:CtrlP<CR>
-map <c-f> :!ack
-nmap <c-a> :w<CR>
+"map <c-f> :!ack
+"nmap <c-a> :w<CR>
 map <Leader>t :TagbarToggle<CR>
 
 """ Filetype specific stuff comes now...
