@@ -34,6 +34,10 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
 endif
 
+if isdirectory($HOME . '/t/rust/src/etc/vim')
+	set runtimepath+=~/t/rust/src/etc/vim
+endif
+
 " Have syntax highlighting and non-vi features
 syntax on
 filetype plugin indent on
