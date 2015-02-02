@@ -32,6 +32,8 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 		set showmode
 	endfunction
 	let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
+
+	Bundle 'flazz/vim-colorschemes'
 endif
 
 if isdirectory($HOME . '/t/rust/src/etc/vim')
@@ -41,6 +43,9 @@ endif
 " Have syntax highlighting and non-vi features
 syntax on
 filetype plugin indent on
+
+set t_Co=256
+colorscheme hybrid
 
 " Indent without helping me.
 set autoindent
