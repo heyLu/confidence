@@ -98,6 +98,7 @@ au FileType text set textwidth=72
 au BufNewFile,BufRead *.{hs,lhs} set comments=:--,sr:{-,ex:-}
 au BufNewFile,BufRead *.rb set comments=:#,s:=begin,e:=end
 au BufNewFile,BufRead *.{opa,trx} set filetype=opa shiftwidth=2 tabstop=2 expandtab
+au BufNewFile,BufRead *.pxi set filetype=clojure
 
 " Don't let me further than 1 line towards the end or the beginning.
 set scrolloff=1
