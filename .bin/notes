@@ -1,0 +1,5 @@
+#!/bin/sh
+
+#HOME=$HOME/.ff-notes firefox --new-instance http://not.es
+#google-chrome-stable --app http://not.es
+google-chrome-stable --profile-directory=Default --app-id=heaniklamgfjlgdbkmhpecgmbaoelmao

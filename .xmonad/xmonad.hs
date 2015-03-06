@@ -54,6 +54,7 @@ main = do
         ((mod4Mask .|. shiftMask, xK_b), spawnHere "firefox -private-window"),
         ((mod4Mask, xK_e), spawnHere "emacs"),
         ((mod4Mask .|. shiftMask, xK_e), spawnHere "emacs -f writeroom-mode"),
+        ((mod4Mask, xK_n), spawnHere "notes"),
 
         ((0, xF86XK_AudioMute), spawn "amixer set Master toggle"),
         ((0, xF86XK_AudioLowerVolume), spawn "amixer set Master 5%-"),
