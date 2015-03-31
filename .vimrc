@@ -34,6 +34,9 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
 
 	Bundle 'flazz/vim-colorschemes'
+	Bundle 'lambdatoast/elm.vim'
+	Bundle 'fatih/vim-go'
+	Bundle 'scrooloose/nerdtree'
 endif
 
 if isdirectory($HOME . '/t/rust/src/etc/vim')
