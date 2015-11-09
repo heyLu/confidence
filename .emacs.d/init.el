@@ -3,6 +3,7 @@
 
 (setq initial-major-mode 'text-mode)
 (setq initial-scratch-message nil)
+(setq inhibit-startup-message t)
 
 (setq auto-save-file-name-transforms
       `((".*" ,(concat user-emacs-directory "backups"))))
@@ -22,5 +23,4 @@
 (custom-set-variables
  '(global-auto-revert-mode t)
  '(haskell-mode-hook (quote (turn-on-haskell-simple-indent)))
- '(initial-buffer-choice (get-buffer "*scratch*"))
  '(scheme-program-name "petite"))
