@@ -37,7 +37,10 @@ function precmd {
 	dir="%{$fg[cyan]%}%~%{$reset_color%}"
 	lastcmd="$history[$(($HISTCMD-1))]"
 	lastcmd_witherror="%(?!$lastcmd!%B$lastcmd%b)"
-	PROMPT="$user in $dir@$(repo_branch) $lastcmd_witherror
+	if [ -n "$SSH_CONNECTION" ]; then
+		server="@`echo $SSH_CONNECTION | cut -d' ' -f3`"
+	fi
+	PROMPT="$user$server in $dir@$(repo_branch) $lastcmd_witherror
 $(repo_char) $ "
 	RPROMPT="%D{%Y-%m-%d} %{$fg[red]%}%t%{$reset_color%}"
 }
