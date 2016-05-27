@@ -15,6 +15,7 @@ check_url() {
 
 check_url papill0n.org
 check_url papill0n.org/favicon?url=https://google.com
+check_url papill0n.org/weird_dreams
 check_url git.papill0n.org
 check_url one.papill0n.org
 check_url pixl.papill0n.org
