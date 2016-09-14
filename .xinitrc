@@ -1,6 +1,8 @@
 #!/bin/bash
 
 xsetroot -cursor_name left_ptr
+# Disable turning the screen off to save power
+xset -dpms; xset s off
 
 #feh -bg-scale /usr/share/themes/Adwaita/backgrounds/stripes.jpg
 
