@@ -6,6 +6,9 @@ xset -dpms; xset s off
 
 #feh -bg-scale /usr/share/themes/Adwaita/backgrounds/stripes.jpg
 
+# Use de layout when Alt+Gr is pressed
+setxkbmap -option grp:switch us,de
+
 eval `dbus-launch --auto-syntax`
 start-pulseaudio-x11
 pactl set-sink-volume 0 1.0
