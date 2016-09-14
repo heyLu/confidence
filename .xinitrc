@@ -11,6 +11,7 @@ start-pulseaudio-x11
 pactl set-sink-volume 0 1.0
 nm-applet&
 #conky&
+udiskie --smart-tray --no-notify &
 
 #xmodmap ~/.swap-esc-capslock
 synclient TouchpadOff=1
