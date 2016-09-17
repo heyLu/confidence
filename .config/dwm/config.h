@@ -32,6 +32,8 @@ static const Rule rules[] = {
 	{ "Gimp",     NULL,       NULL,       0,            1,           -1 },
 	//{ "Firefox",  NULL,       NULL,       1 << 8,       0,           -1 },
 
+	{ "Quodlibet", NULL,      NULL,       1 << 4,       0,           -1 },
+
 	// float pinboard/popup windows
 	//{ "Firefox",  NULL,       "",       0,       1,           -1 },
 };
@@ -67,6 +69,7 @@ static const char *termcmd[]  = { "/usr/bin/sakura", NULL };
 static const char *volumedowncmd[] = { "amixer", "set", "Master", "5%-", NULL };
 static const char *volumeupcmd[] = { "amixer", "set", "Master", "5%+", NULL };
 static const char *volumetogglecmd[] = { "amixer", "set", "Master", "toggle", NULL };
+static const char *musicplayercmd[] = { "quodlibet", NULL };
 
 static const char *screenlockcmd[] = { "slock", NULL };
 
@@ -109,6 +112,9 @@ static Key keys[] = {
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, { .v = volumedowncmd } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, { .v = volumeupcmd } },
 	{ 0,                            XF86XK_AudioMute       , spawn, { .v = volumetogglecmd } },
+
+	{ MODKEY|ShiftMask,             XK_m,                    view,  {.ui = 1 << 4} },
+	{ MODKEY|ShiftMask,             XK_m,                    spawn, { .v = musicplayercmd } },
 
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          { .v = screenlockcmd } },
 };
