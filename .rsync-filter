@@ -6,6 +6,8 @@
 
 # personal stuff
 + /.ssh
++ /.keepass.kdb
++ /.keepass.kdbx
 + /.mails
 + /.irssi/logs
 + /diary
