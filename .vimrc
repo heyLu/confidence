@@ -172,6 +172,15 @@ map <c-b> :make<CR> " build
 "nmap <c-a> :w<CR>
 map <Leader>t :TagbarToggle<CR>
 
+"" mappings and options inspired by https://www.vi-improved.org/recommendations/
+nnoremap <leader>b :b <c-d>
+nnoremap <leader>q :b#<cr>
+
+inoremap <leader>f <c-x><c-f>
+inoremap <leader>n <c-x><c-n>
+
+set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+
 """ Filetype specific stuff comes now...
 
 " Have Vala highlighted, too
