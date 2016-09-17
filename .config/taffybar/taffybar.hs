@@ -1,10 +1,13 @@
+import Data.IORef (newIORef)
+
 import System.Taffybar
-import System.Taffybar.Battery
+import System.Taffybar.Battery (textBatteryNew)
 import System.Taffybar.Systray
 import System.Taffybar.TaffyPager
 import System.Taffybar.SimpleClock
 import System.Taffybar.Widgets.PollingGraph
 import System.Taffybar.Widgets.PollingLabel
+import System.Information.Battery (batteryContextsNew)
 import System.Information.CPU
 import System.Information.Memory (parseMeminfo, memoryUsedRatio)
 import Graphics.UI.Gtk (widgetShowAll)
@@ -22,6 +25,8 @@ textMemoryNew intervalSeconds = do
     return memLabel
 
 main = do
+    cs <- batteryContextsNew
+    rs <- sequence $ fmap newIORef cs
     let cpuCfg = defaultGraphConfig {
             graphDataColors = [(0, 1, 0, 1), (1, 0, 1, 0.5)]
         }
@@ -29,7 +34,8 @@ main = do
         log = taffyPagerNew defaultPagerConfig
         tray = systrayNew
         cpu = pollingGraphNew cpuCfg 3 cpuCallback
-        battery = textBatteryNew "Bat: $percentage$%" 30
+        battery = textBatteryNew rs "Bat: $percentage$%" 30
+        --battery = batteryBarNew defaultBatteryConfig 30
         memory = textMemoryNew 3
     defaultTaffybar defaultTaffybarConfig {
         barHeight = 15,
