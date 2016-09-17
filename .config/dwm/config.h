@@ -72,6 +72,7 @@ static const char *volumedowncmd[] = { "amixer", "set", "Master", "5%-", NULL };
 static const char *volumeupcmd[] = { "amixer", "set", "Master", "5%+", NULL };
 static const char *volumetogglecmd[] = { "amixer", "set", "Master", "toggle", NULL };
 static const char *musicplayercmd[] = { "quodlibet", NULL };
+static const char *musicstopaftercmd[] = { "quodlibet", "--stop-after=t", NULL };
 
 static const char *screenlockcmd[] = { "slock", NULL };
 
@@ -119,6 +120,7 @@ static Key keys[] = {
 
 	{ MODKEY|ShiftMask,             XK_m,                    view,  {.ui = 1 << 4} },
 	{ MODKEY|ShiftMask,             XK_m,                    spawn, { .v = musicplayercmd } },
+	{ ShiftMask,                    XF86XK_AudioPlay,        spawn, { .v = musicstopaftercmd } },
 
 	{ MODKEY|ShiftMask,             XK_l,      spawn,          { .v = screenlockcmd } },
 };
