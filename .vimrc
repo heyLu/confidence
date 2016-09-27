@@ -223,6 +223,8 @@ autocmd BufNewFile,BufRead *.java set includeexpr=substitute(v:fname,'\\.','/','
 autocmd BufNewFile,BufRead *.java set shiftwidth=4 tabstop=4 expandtab
 let g:syntastic_java_checkers = []
 
+autocmd BufNewFile,BufRead *.{yml,yaml} set shiftwidth=2 tabstop=2 expandtab
+
 if filereadable('~/ruby-1.9.4dev/lib/ruby/gems/1.9.1/gems/rcodetools-0.8.5.0/rcodetools.vim')
 	source ~/ruby-1.9.4dev/lib/ruby/gems/1.9.1/gems/rcodetools-0.8.5.0/rcodetools.vim
 endif
