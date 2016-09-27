@@ -175,9 +175,10 @@ map <Leader>t :TagbarToggle<CR>
 "" mappings and options inspired by https://www.vi-improved.org/recommendations/
 nnoremap <leader>b :b <c-d>
 nnoremap <leader>q :b#<cr>
+nnoremap <leader>e :e **/
 
-inoremap <leader>f <c-x><c-f>
-inoremap <leader>n <c-x><c-n>
+inoremap ,f <c-x><c-f>
+inoremap ,n <c-x><c-n>
 
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
 
