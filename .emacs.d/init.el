@@ -20,6 +20,44 @@
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
 
+(defun simple-writing-mode (&optional enable)
+  "Change the current buffer to allow for simple writing of long texts"
+  (interactive)
+  (if (or enable (null (get this-command 'is-enabled)))
+      (progn
+        (setq-local word-wrap t)
+        (visual-fill-column-mode 1)
+        (set-fringe-style '(0 . nil))
+        (put this-command 'is-enabled t)
+        (message "Simple writing mode enabled"))
+    (progn
+      (setq-local word-wrap nil)
+      (visual-fill-column-mode 0)
+      (set-fringe-style nil)
+      (put this-command 'is-enabled nil)
+      (message "Simple writing mode disabled"))))
+
+(defun read-lines (path)
+  (with-temp-buffer
+    (insert-file-contents path)
+    (split-string (buffer-string) "\n" t)))
+
+(require 'ido-vertical-mode)
+(defun find-recent-notes ()
+  "Find recently edited notes."
+  (interactive)
+  (let ((vertical-mode-enabled ido-vertical-mode))
+    (turn-on-ido-vertical)
+    (let* ((recent (read-lines "~/.recent.txt"))
+           (file (ido-completing-read "Choose note: " recent)))
+      (when file
+        (find-file file)))
+    (if (null vertical-mode-enabled)
+        (turn-off-ido-vertical))
+    (simple-writing-mode t)))
+
+(global-set-key (kbd "C-x C-n") 'find-recent-notes)
+
 (custom-set-variables
  '(global-auto-revert-mode t)
  '(haskell-mode-hook (quote (turn-on-haskell-simple-indent)))
