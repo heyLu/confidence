@@ -66,7 +66,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "/usr/bin/sakura", NULL };
 
-static const char *editorcmd[] = { "emacs", NULL };
+static const char *editorcmd[] = { "emacsclient", "--alternate-editor=", "--create-frame", NULL };
+static const char *writecmd[] = { "emacsclient", "--alternate-editor=", "--create-frame", "--eval", "(find-recent-notes)", NULL };
 
 static const char *volumedowncmd[] = { "amixer", "set", "Master", "5%-", NULL };
 static const char *volumeupcmd[] = { "amixer", "set", "Master", "5%+", NULL };
@@ -113,6 +114,7 @@ static Key keys[] = {
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
 
 	{ MODKEY,                       XK_e,      spawn,          { .v = editorcmd } },
+	{ MODKEY,                       XK_w,      spawn,          { .v = writecmd } },
 
 	{ 0,                            XF86XK_AudioLowerVolume, spawn, { .v = volumedowncmd } },
 	{ 0,                            XF86XK_AudioRaiseVolume, spawn, { .v = volumeupcmd } },
