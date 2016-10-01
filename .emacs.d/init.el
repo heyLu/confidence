@@ -58,6 +58,9 @@
 
 (global-set-key (kbd "C-x C-n") 'find-recent-notes)
 
+(custom-set-faces
+ '(default ((t (:family "Fantasque Sans Mono" :height 124)))))
+
 (custom-set-variables
  '(global-auto-revert-mode t)
  '(haskell-mode-hook (quote (turn-on-haskell-simple-indent)))
