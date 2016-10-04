@@ -58,6 +58,13 @@
 
 (global-set-key (kbd "C-x C-n") 'find-recent-notes)
 
+(defun create-note ()
+  (interactive)
+  (ido-find-file)
+  (simple-writing-mode t))
+
+(global-set-key (kbd "C-x C-S-n") 'create-note)
+
 (custom-set-faces
  '(default ((t (:family "Fantasque Sans Mono" :height 124)))))
 
