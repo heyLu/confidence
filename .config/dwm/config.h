@@ -66,6 +66,8 @@ static char dmenumon[2] = "0"; /* component of dmenucmd, manipulated in spawn() 
 static const char *dmenucmd[] = { "dmenu_run", "-m", dmenumon, "-fn", dmenufont, "-nb", col_gray1, "-nf", col_gray3, "-sb", col_cyan, "-sf", col_gray4, NULL };
 static const char *termcmd[]  = { "/usr/bin/sakura", NULL };
 
+static const char *fullscreenbrowsercmd[] = { "toggle-fullscreen.sh", NULL };
+
 static const char *editorcmd[] = { "emacsclient", "--alternate-editor=", "--create-frame", NULL };
 static const char *writecmd[] = { "emacsclient", "--alternate-editor=", "--create-frame", "--eval", "(find-recent-notes)", NULL };
 
@@ -112,6 +114,9 @@ static Key keys[] = {
 	TAGKEYS(                        XK_8,                      7)
 	TAGKEYS(                        XK_9,                      8)
 	{ MODKEY|ShiftMask,             XK_q,      quit,           {0} },
+
+	{ MODKEY|ShiftMask,             XK_b,      togglebar,      {0} },
+	{ MODKEY|ShiftMask,             XK_b,      spawn,          { .v = fullscreenbrowsercmd } },
 
 	{ MODKEY,                       XK_e,      spawn,          { .v = editorcmd } },
 	{ MODKEY,                       XK_w,      spawn,          { .v = writecmd } },
