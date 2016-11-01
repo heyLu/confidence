@@ -1,4 +1,5 @@
 alias ls='ls --group-directories-first --color=auto'
+alias grep='grep --color=auto'
 
 # shortcuts
 alias tomorrow="vim ~/d/tomorrow -c ':Goyo'"
