@@ -2,6 +2,10 @@
 
 status=""
 
+# network
+#status="📡 $(nmcli --terse --fields STATE -c no g status)"
+#status="📡 $(nmcli --terse --colors no --fields name,type connection show --active | grep -v ':bridge$' | sed 's/:[-a-z0-9]*$//' | head -n1)"
+
 # battery
 charge_path="/sys/class/power_supply"
 charge_full=`cat $charge_path/BAT0/energy_full`
