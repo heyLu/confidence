@@ -65,6 +65,13 @@
 
 (global-set-key (kbd "C-x C-S-n") 'create-note)
 
+(defun find-diary-entry ()
+  (interactive)
+  (find-file (format-time-string "~/w/%Y-%m-%d.txt"))
+  (simple-writing-mode t))
+
+(global-set-key (kbd "C-x C-d") 'find-diary-entry)
+
 (custom-set-faces
  '(default ((t (:family "Fantasque Sans Mono" :height 124)))))
 
