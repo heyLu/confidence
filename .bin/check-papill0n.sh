@@ -5,7 +5,7 @@ status=0
 check_url() {
 	url="$1"
 
-	if curl --fail --show-error --silent --location "$url" > /dev/null; then
+	if curl --fail --show-error --silent --max-time 2 --location "$url" > /dev/null; then
 		echo -e "[\033[0;32m✓\033[0m] $url"
 	else
 		echo -e "[ ] \033[0;31m$url\033[0m"
