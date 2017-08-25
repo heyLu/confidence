@@ -28,4 +28,6 @@
 - *.hi
 - *.o
 - *.jar
+
+# ignore everything else!
 - /*
