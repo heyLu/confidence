@@ -4,7 +4,12 @@ status=""
 
 # network
 #status="📡 $(nmcli --terse --fields STATE -c no g status)"
-#status="📡 $(nmcli --terse --colors no --fields name,type connection show --active | grep -v ':bridge$' | sed 's/:[-a-z0-9]*$//' | head -n1)"
+network="$(nmcli --terse --colors no --fields name,type connection show --active | grep -v ':bridge$' | sed 's/:[-a-z0-9]*$//' | head -n1)"
+status="📡 $network"
+if [ "$network" = "" ]; then
+	status="📯"
+fi
+#status="📡 $(nmcli -t -f active,ssid dev wifi | sort -r | uniq)"
 
 # battery
 charge_path="/sys/class/power_supply"
