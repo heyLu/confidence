@@ -10,18 +10,33 @@ xset -dpms; xset s off
 setxkbmap -option grp:switch us,de
 
 eval `dbus-launch --auto-syntax`
-start-pulseaudio-x11
-pactl set-sink-volume 0 1.0
-nm-applet&
+#start-pulseaudio-x11
+#pactl set-sink-volume 0 1.0
+#nm-applet&
 #conky&
 udiskie --smart-tray --no-notify &
 
 #xmodmap ~/.swap-esc-capslock
 synclient TouchpadOff=1
 
-taffybar&
+if which xbanish &> /dev/null; then
+	xbanish&
+fi
 
-eval $(ssh-agent -s)
+#taffybar&
 
-exec xmonad
+redshift&
+
+#eval $(ssh-agent -s)
+eval $(gnome-keyring-daemon --replace)
+export SSH_AUTH_SOCK
+
+#xrandr --output LVDS1 --off --output DP1 --mode 1920x1080
+
+while xsetroot -name "$(~/.config/dwm/status.sh)"; do
+	sleep 1
+done&
+
+exec ~/t/suckless/dwm/dwm
+#exec xmonad
 #exec gnome-session
