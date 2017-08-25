@@ -1,0 +1,19 @@
+#!/bin/bash
+
+export NQDIR="${NQDIR:-$HOME/.cache/run}"
+
+case "$1" in
+	-nq)
+		shift
+		nq $*
+		;;
+	-fq)
+		shift
+		fq $*
+		;;
+	*)
+		logfile="$(nq run-and-notify $*)"
+		echo -e "$(date +%s)\t$logfile\t$*" >> "$NQDIR/jobs"
+		echo "$NQDIR/$logfile"
+		;;
+esac

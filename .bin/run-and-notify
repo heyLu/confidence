@@ -1,0 +1,13 @@
+#!/bin/bash
+
+sh -c "$*"
+
+result="$?"
+state="success"
+notify_opts=""
+if ! [ "$result" = "0" ]; then
+	state="error"
+	# set notify-send option to indicate an error
+fi
+
+notify-send $notify_opts "$1 finished running ($state)" "'$*' ran until `date` and exited with status $result."
