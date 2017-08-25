@@ -21,6 +21,8 @@
 	insteadOf = hub:
 [url "git@github.com:"]
 	insteadOf = gh:
+[url "https://gitlab.com/"]
+	insteadOf = gl:
 [url "git@heroku.com:"]
 	insteadOf = heroku:
 [url "git://anongit.freedesktop.org/"]
