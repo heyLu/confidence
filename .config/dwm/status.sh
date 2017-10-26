@@ -15,7 +15,11 @@ fi
 charge_path="/sys/class/power_supply"
 charge_full=`cat $charge_path/BAT0/energy_full`
 charge_now=`cat $charge_path/BAT0/energy_now`
-charge_rate=$(($charge_now * 100 / $charge_full ))
+if [ -z "$charge_full" -o -z "$charge_now" ]; then
+	charge_rate="?"
+else
+	charge_rate=$(($charge_now * 100 / $charge_full ))
+fi
 charge_icon=" "
 if [ "$(cat $charge_path/AC/online)" -eq "1" ]; then
 	charge_icon="⚡"
