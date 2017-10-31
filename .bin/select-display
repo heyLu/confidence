@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# TODO:
+#
+# - parse maximum resolution from xrandr output
+
+options="$(xrandr | sed -nE 's/^(\w+) connected.*$/\1/p')"
+options="$options
+auto"
+
+display="$1"
+if [ -z "$display" ]; then
+	display="$(echo "$options" | zenity --list --text "Select a display to project to:" --column Display)"
+fi
+
+case "$display" in
+	"")
+		# don't change anything
+		;;
+	"auto")
+		xrandr --auto
+		;;
+	LVDS1)
+		xrandr --output LVDS1 --mode 1366x768 --output DP1 --off
+		;;
+	DP1)
+		xrandr --output LVDS1 --off           --output DP1 --mode 2560x1440
+		;;
+	*)
+		xrandr --error --text "Don't know how to handle '$display'"
+		;;
+esac
