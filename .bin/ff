@@ -1,0 +1,61 @@
+#!/bin/sh
+
+# TODO:
+#
+# - default to xdg-open
+# - make program configurable (`-open-with`, implies `-open`?)
+# - make opening configurable (`-no-open`)
+#
+# maybe:
+#
+# - use fzf if called from an interactive terminal (?)
+#   - what about scripts called from the commandline, but that should
+#     display stuff?  probably they don't exist?
+# - allow multiple directories to be searched
+# - make "chooser" configurable (e.g. allow regular dmenu)
+
+program="xdg-open"
+base="$PWD"
+pattern='*.pdf'
+
+while [ $# -gt 0 ]; do
+	case "$1" in
+		-no-open)
+			program="echo"
+			shift
+			;;
+		-w|-open-with)
+			shift
+			program="$1"
+			shift
+			;;
+		-p|-pattern)
+			shift
+			pattern="$1"
+			shift
+			;;
+		*)
+			break
+			;;
+	esac
+done
+
+case "$1" in
+	m)
+		base="$HOME/m/buffer"
+		pattern='*.mp4'
+		;;
+	p)
+		base="$HOME/d/books/cs"
+		;;
+	*)
+		if [ -n "$1" ]; then
+			base="$1"
+		fi
+		;;
+esac
+
+file="$(find "$base" -type f -name "$pattern" -printf '%P\n' | rofi -dmenu -matching normal -sort -i -markup-rows)"
+if [ "$?" -eq "0" ]; then
+	$program "$base/$file"
+fi
