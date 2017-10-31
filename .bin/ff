@@ -16,6 +16,20 @@ program="xdg-open"
 base="$PWD"
 pattern='*.pdf'
 
+choose_rofi() {
+	rofi -dmenu -matching normal -sort -i -markup-rows
+}
+
+choose_dmenu() {
+	dmenu -l 10 -i
+}
+
+choose=choose_rofi
+
+if ! which rofi &> /dev/null; then
+	choose=choose_dmenu
+fi
+
 while [ $# -gt 0 ]; do
 	case "$1" in
 		-no-open)
@@ -30,6 +44,10 @@ while [ $# -gt 0 ]; do
 		-p|-pattern)
 			shift
 			pattern="$1"
+			shift
+			;;
+		-dmenu)
+			choose=choose_dmenu
 			shift
 			;;
 		*)
@@ -53,7 +71,7 @@ case "$1" in
 		;;
 esac
 
-file="$(find "$base" -type f -name "$pattern" -printf '%P\n' | rofi -dmenu -matching normal -sort -i -markup-rows)"
+file="$(find "$base" -type f -name "$pattern" -printf '%P\n' | $choose)"
 if [ "$?" -eq "0" ]; then
 	$program "$base/$file"
 fi
