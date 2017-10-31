@@ -2,9 +2,7 @@
 
 # TODO:
 #
-# - default to xdg-open
-# - make program configurable (`-open-with`, implies `-open`?)
-# - make opening configurable (`-no-open`)
+# - support matching multiple extensions
 #
 # maybe:
 #
