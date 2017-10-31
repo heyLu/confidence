@@ -1,0 +1,22 @@
+#!/bin/sh
+
+# TODO:
+#
+# - default to xdg-open
+# - make program configurable (`-open-with`, implies `-open`?)
+# - make opening configurable (`-no-open`)
+# - make "chooser" configurable (e.g. allow regular dmenu)
+#
+# maybe:
+#
+# - use fzf if called from an interactive terminal (?)
+#   - what about scripts called from the commandline, but that should
+#     display stuff?  probably they don't exist?
+# - allow multiple directories to be searched
+
+base="$HOME/d/books/cs"
+
+paper="$(find "$base" -type f -name '*.pdf' -printf '%P\n' | rofi -dmenu -matching normal -sort -i -markup-rows)"
+if [ "$?" -eq "0" ]; then
+	evince "$base/$paper"
+fi
