@@ -27,6 +27,6 @@ case "$display" in
 		xrandr --output LVDS1 --off           --output DP1 --mode 2560x1440
 		;;
 	*)
-		xrandr --error --text "Don't know how to handle '$display'"
+		xrandr --output LVDS1 --off           --output "$display" --primary --auto
 		;;
 esac
