@@ -72,6 +72,28 @@
 
 (global-set-key (kbd "C-x C-d") 'find-diary-entry)
 
+(defun move-line-up ()
+  (interactive)
+  (beginning-of-line)
+  (kill-line)
+  (backward-delete-char 1)
+  (beginning-of-line)
+  (newline)
+  (previous-line)
+  (yank))
+
+(defun move-line-down ()
+  (interactive)
+  (beginning-of-line)
+  (kill-line)
+  (delete-forward-char 1)
+  (end-of-line)
+  (newline)
+  (yank))
+
+(global-set-key (kbd "<M-down>") 'move-line-down)
+(global-set-key (kbd "<M-up>") 'move-line-up)
+
 (custom-set-faces
  '(default ((t (:family "Fantasque Sans Mono" :height 124)))))
 
