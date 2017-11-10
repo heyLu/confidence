@@ -1,0 +1,5 @@
+#!/bin/sh
+
+echo 'sweet dreams!'
+
+systemctl suspend; slock
