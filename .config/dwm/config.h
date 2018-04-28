@@ -21,7 +21,8 @@ static const char *colors[SchemeLast][3]      = {
 };
 
 /* tagging */
-static const char *tags[] = { "term", "web", "msg", "read", "fun", "6", "7", "8", "9" };
+//static const char *tags[] = { "term", "web", "msg", "read", "fun", "6", "7", "8", "9" };
+static const char *tags[] = { "α", "β", "γ", "δ", "ε", "ζ", "η", "θ", "ι" };
 
 static const Rule rules[] = {
 	/* xprop(1):
