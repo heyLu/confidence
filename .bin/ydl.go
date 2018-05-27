@@ -43,6 +43,8 @@ func main() {
 		err = cmd.Run()
 		if err != nil {
 			fmt.Println("error...", err)
+		} else {
+			success = true
 		}
 
 		if !success && retry {
