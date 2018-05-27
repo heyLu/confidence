@@ -1,4 +1,7 @@
-all: timely up ydl
+all: rn timely up ydl
+
+rn: rn.go
+	go build $<
 
 timely: timely.go
 	go build timely.go
