@@ -37,19 +37,27 @@ function repo_branch {
 	fi
 }
 
+__last_cmd_time=""
+
 autoload colors && colors
 function precmd {
 	echo -ne "\033]0;\007"
 	user="%{$fg[red]%}%n%{$reset_color%}"
 	dir="%{$fg[cyan]%}%~%{$reset_color%}"
-	lastcmd="$history[$(($HISTCMD-1))]"
-	lastcmd_witherror="%(?!$lastcmd!%B$lastcmd%b)"
+	duration=$(since "$__last_cmd_time")
+	# store last cmd in psvar[1] (magically avoids escaping problems?)
+	psvar[1]="$history[$(($HISTCMD-1))]"
 	if [ -n "$SSH_CONNECTION" ]; then
 		server="@`echo $SSH_CONNECTION | cut -d' ' -f3`"
 	fi
-	PROMPT="$user$server in $dir@$(repo_branch) $lastcmd_witherror
+	PROMPT="$user$server in $dir@$(repo_branch) $duration%(?.%1v.%B%1v%b)
 $(repo_char) $ "
-	RPROMPT="%D{%Y-%m-%d} %{$fg[red]%}%t%{$reset_color%}"
+	#RPROMPT="%D{%Y-%m-%d} %{$fg[red]%}%t%{$reset_color%}"
+	__last_cmd_time=$(date +%Y-%m-%dT%H:%M:%S.%N%:z)
+}
+
+function preexec {
+	__last_cmd_time=$(date +%Y-%m-%dT%H:%M:%S.%N%:z)
 }
 
 bindkey -e
