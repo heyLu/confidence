@@ -2,7 +2,7 @@
 	name = Lu Stadler
 	email = lu@papill0n.org
 [core]
-	editor = vi
+	editor = vim
 [merge]
 	conflictstyle = diff3
 [alias]
