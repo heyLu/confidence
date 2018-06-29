@@ -71,7 +71,7 @@ case "$1" in
 		;;
 esac
 
-file="$(find "$base" -type f -name "$pattern" -printf '%P\n' | $choose)"
+file="$(find "$base" -type f -name "$pattern" -printf '%P\n' | sed 's/&/&amp;/g' | $choose | sed 's/&amp;/\&/g')"
 if [ "$?" -eq "0" ]; then
 	$program "$base/$file"
 fi
