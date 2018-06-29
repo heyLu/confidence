@@ -7,7 +7,7 @@ status=""
 network="$(nmcli --terse --colors no --fields name,type connection show --active | grep -v ':bridge$' | sed 's/:[-a-z0-9]*$//' | head -n1)"
 status="📡 $network"
 if [ "$network" = "" ]; then
-	status="📯"
+	status="⛔"
 fi
 #status="📡 $(nmcli -t -f active,ssid dev wifi | sort -r | uniq)"
 
