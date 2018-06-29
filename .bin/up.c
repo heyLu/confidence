@@ -3,23 +3,28 @@
 #include <string.h>
 #include <unistd.h>
 
+#define MAX_PATH (2 << 8)
+
 int main(int argc, char **argv) {
 	if (argc < 2) {
 		printf("Usage: %s file-or-dir\n", argv[0]);
 		return -1;
 	}
 
-	int max_path = 2 << 8;
-	char *path = malloc(sizeof(char) * max_path);
+	int status = EXIT_FAILURE;
+	char *path = malloc(sizeof(char) * MAX_PATH);
 	do {
-		getcwd(path, max_path);
+		getcwd(path, MAX_PATH);
 		if (access(argv[1], F_OK) == 0) {
 			printf("%s\n", path);
-			return 0;
-		} else {
-			chdir("..");
+			status = EXIT_SUCCESS;
+			goto exit;
 		}
+
+		chdir("..");
 	} while (strcmp("/", path) != 0);
 
-	return 1;
+exit:
+	free(path);
+	return status;
 }
