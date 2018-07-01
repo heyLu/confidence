@@ -1,0 +1,12 @@
+#!/bin/bash
+
+window=$(xdotool getactivewindow)
+run="xdotool type --delay 0 --window $window"
+
+case "$1" in
+	-b|--browse)
+		run="xdg-open"
+		;;
+esac
+
+$run "$(rofi -dmenu -matching normal -sort -i -markup-rows < ~/suggest.txt | sed -E 's/.*\s(.*)$/\1/')"
