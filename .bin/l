@@ -2,8 +2,12 @@
 
 # ls or less anything in your filesystem (depending on what it is).
 
-if [ -d $1 ]; then
-	ls --group-directories-first --color=auto $1
-elif [ -f $1 ]; then
-	less $1
+if [ -d "$1" ]; then
+	ls --group-directories-first --color=auto "$1"
+elif [ -f "$1" ]; then
+	less "$1"
+elif which "$1" &> /dev/null; then
+	less `which $1`
+else
+	ls --group-directories-first --color=auto $*
 fi
