@@ -30,6 +30,8 @@
              (put-clojure-indent 'DELETE '(:defn))
              (put-clojure-indent 'ANY '(:defn))))
 
+(add-hook 'flycheck-mode-hook #'flycheck-rust-setup)
+
 ;; (require 'recentf)
 ;; (recentf-mode 1)
 ;; (setq recentf-keep '(("\\.txt\\'") ("\\.md\\'")))
