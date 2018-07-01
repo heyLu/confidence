@@ -30,6 +30,20 @@
              (put-clojure-indent 'DELETE '(:defn))
              (put-clojure-indent 'ANY '(:defn))))
 
+;; (require 'recentf)
+;; (recentf-mode 1)
+;; (setq recentf-keep '(("\\.txt\\'") ("\\.md\\'")))
+;; (setq recentf-max-menu-items 25)
+
+;; (defun recentf-ido-find-file ()
+;;   "Find a recent file using Ido."
+;;   (interactive)
+;;   (let ((file (ido-completing-read "Choose recent file: " recentf-list nil)))
+;;     (when file
+;;       (find-file file))))
+
+;; (global-set-key "\C-x\ \C-r" 'recentf-ido-find-file)
+
 (defun simple-writing-mode (&optional enable)
   "Change the current buffer to allow for simple writing of long texts"
   (interactive)
