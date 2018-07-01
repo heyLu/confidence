@@ -103,6 +103,8 @@
 (custom-set-variables
  '(global-auto-revert-mode t)
  '(haskell-mode-hook (quote (turn-on-haskell-simple-indent)))
+ '(js-indent-level 2)
+ '(org-agenda-files (quote ("~/move.org" "~/calendar.org")))
  '(package-selected-packages
    (quote
     (lua-mode ido-vertical-mode visual-fill-column zencoding-mode zen-mode zeal-at-point yaml-mode writeroom-mode tao-theme rust-mode rainbow-delimiters project-explorer pixie-mode php-mode paredit markdown-mode inf-ruby idris-mode hl-sentence go-mode go-autocomplete git-gutter-fringe+ git-gutter git-commit-mode flymake-go flymake flycheck-rust flycheck-haskell evil ess elm-mode eink-theme editorconfig ediprolog company clojurescript-mode clojure-mode-extra-font-locking cider)))
