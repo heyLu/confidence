@@ -22,6 +22,13 @@
 (add-to-list 'auto-mode-alist '("\\.edn\\'" . clojure-mode))
 
 (add-hook 'clojure-mode-hook 'paredit-mode)
+(add-hook 'clojure-mode-hook
+          '(lambda ()
+             (put-clojure-indent 'GET '(:defn))
+             (put-clojure-indent 'POST '(:defn))
+             (put-clojure-indent 'PUT '(:defn))
+             (put-clojure-indent 'DELETE '(:defn))
+             (put-clojure-indent 'ANY '(:defn))))
 
 (defun simple-writing-mode (&optional enable)
   "Change the current buffer to allow for simple writing of long texts"
