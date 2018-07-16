@@ -35,3 +35,5 @@
 	default = simple
 [pull]
 	ff = only
+[http "https://gopkg.in"]
+	followRedirects = true
