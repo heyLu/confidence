@@ -12,6 +12,7 @@
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 	ba = branch -a
 	praise = blame
+	recent-tags = ! sh -c 'git tag --sort=-version:refname | head -n5'
 [format]
 	pretty = %C(magenta)%h%Creset %Cgreen[%cr]%Creset (%an) %s
 [color]
