@@ -8,6 +8,10 @@ network="$(nmcli --terse --colors no --fields name,type connection show --active
 status="📡 $network"
 if [ "$network" = "" ]; then
 	status="⛔"
+else
+	if ping -w1 -c1 1.1.1.1 &> /dev/null; then
+		status="$status*"
+	fi
 fi
 #status="📡 $(nmcli -t -f active,ssid dev wifi | sort -r | uniq)"
 
