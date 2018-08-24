@@ -31,7 +31,7 @@ func main() {
 	if duration > 1*time.Second && win != winAfter {
 		notifyCompletion(msg)
 	}
-	fmt.Println(msg)
+	fmt.Fprintln(os.Stderr, msg)
 
 	success := true
 	if err != nil {
