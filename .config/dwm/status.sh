@@ -11,6 +11,8 @@ else
 	status="$status📡 $network"
 	if ping -w1 -c1 1.1.1.1 &> /dev/null; then
 		status="$status*"
+	else
+		status="$status "
 	fi
 fi
 #status="📡 $(nmcli -t -f active,ssid dev wifi | sort -r | uniq)"
