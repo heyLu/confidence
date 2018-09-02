@@ -14,7 +14,8 @@ import (
 
 // Day contains information about how long you've worked today.
 type Day struct {
-	Start time.Time `json:"start"`
+	Start time.Time     `json:"start"`
+	Break time.Duration `json:"break,omitempty"`
 }
 
 // modes:
@@ -33,7 +34,18 @@ func main() {
 		writeDay(dayFile, day)
 	}
 
-	dur := time.Since(day.Start)
+	if len(os.Args) > 2 && os.Args[1] == "break" {
+		dur, err := time.ParseDuration(os.Args[2])
+		if err != nil {
+			fmt.Fprintln(os.Stderr, err)
+			os.Exit(1)
+		}
+		fmt.Fprintf(os.Stderr, "took a %s break\n", dur)
+		day.Break += dur
+		writeDay(dayFile, day)
+	}
+
+	dur := time.Since(day.Start) - day.Break
 	hours := dur.Hours()
 	minutes := dur.Minutes() - float64(int(hours)*60)
 	fmt.Printf("%d:%02d\n", int(hours), int(minutes))
