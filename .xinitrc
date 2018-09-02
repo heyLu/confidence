@@ -34,7 +34,7 @@ export SSH_AUTH_SOCK
 #xrandr --output LVDS1 --off --output DP1 --mode 1920x1080
 
 while xsetroot -name "$(~/.config/dwm/status.sh)"; do
-	sleep 1
+	sleep 30
 done&
 
 exec ~/t/suckless/dwm/dwm
