@@ -2,6 +2,8 @@
 
 status=""
 
+status="$(working-time)  "
+
 # network
 #status="📡 $(nmcli --terse --fields STATE -c no g status)"
 network="$(nmcli --terse --colors no --fields name,type connection show --active | grep -v ':bridge$' | sed 's/:[-a-z0-9]*$//' | head -n1)"
