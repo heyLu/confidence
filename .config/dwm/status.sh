@@ -2,7 +2,9 @@
 
 status=""
 
-status="$(working-time)  "
+working_time="$(working-time)"
+collect-working-time.sh $working_time $HOME/.working-times.csv
+status="$working_time  "
 
 # network
 #status="📡 $(nmcli --terse --fields STATE -c no g status)"
