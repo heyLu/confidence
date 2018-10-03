@@ -17,6 +17,13 @@ case "$display" in
 	"")
 		# don't change anything
 		;;
+	external)
+		# select external display if one is available
+		external="$(echo "$options" | grep -v 'LVDS1\|auto')"
+		if [ -n "$external" ]; then
+			select-display "$external"
+		fi
+		;;
 	"auto")
 		xrandr --auto
 		;;
