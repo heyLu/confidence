@@ -8,6 +8,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"os"
+	"os/exec"
 	"path"
 	"time"
 )
@@ -40,9 +41,11 @@ func main() {
 			dur := now.Sub(*day.BreakStart)
 			day.Break += dur
 			day.BreakStart = nil
+			notifyCompletion(fmt.Sprintf("took a %s break", dur), 0)
 			fmt.Fprintf(os.Stderr, "took a %s break\n", dur)
 		} else {
 			day.BreakStart = &now
+			notifyCompletion("taking a break", 10*time.Hour)
 		}
 		writeDay(dayFile, day)
 	}
@@ -53,6 +56,7 @@ func main() {
 			fmt.Fprintln(os.Stderr, err)
 			os.Exit(1)
 		}
+		notifyCompletion(fmt.Sprintf("took a %s break", dur), 0)
 		fmt.Fprintf(os.Stderr, "took a %s break\n", dur)
 		day.Break += dur
 		writeDay(dayFile, day)
@@ -97,4 +101,14 @@ func writeDay(path string, day Day) {
 		fmt.Println("write error")
 		os.Exit(1)
 	}
+}
+
+func notifyCompletion(msg string, dur time.Duration) {
+	args := make([]string, 0, 1)
+	if dur != 0 {
+		args = append(args, "--expire-time", fmt.Sprintf("%d", int(dur.Seconds()*1000)))
+	}
+	args = append(args, msg)
+	notifyCmd := exec.Command("notify-send", args...)
+	notifyCmd.Run()
 }
