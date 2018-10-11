@@ -31,7 +31,7 @@ function repo_char {
 
 function repo_branch {
 	if $HOME/.bin/up .hg > /dev/null 2> /dev/null; then
-		echo "%{$fg[green]%}$(cat `$HOME/.bin/up .hg`/.hg/branch)%{$reset_color%}"
+		echo "%{$fg[green]%}$(cat `$HOME/.bin/up .hg`/.hg/branch 2> /dev/null || echo default)%{$reset_color%}"
 	elif git branch > /dev/null 2> /dev/null; then
 		echo "%{$fg[green]%}$(git branch --no-color | sed -En 's/^\* (.*)/\1/p')%{$reset_color%}"
 	fi
