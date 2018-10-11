@@ -1,4 +1,4 @@
-all: rn since timely up working-time ydl
+all: rn since timely tmpview up working-time ydl
 
 rn: rn.go
 	go build $<
@@ -17,3 +17,10 @@ working-time: working-time.go
 
 ydl: ydl.go
 	go build ydl.go
+
+PREFIX = $(HOME)/.local
+
+LP_REPO = $(HOME)/k/lp
+
+tmpview: $(LP_REPO)/go/tmpview/*.go
+	make -C $(LP_REPO)/go/tmpview PREFIX=$(PREFIX) install
