@@ -37,6 +37,8 @@ while xsetroot -name "$(~/.config/dwm/status.sh)"; do
 	sleep 30
 done&
 
+select-display external
+
 exec ~/t/suckless/dwm/dwm
 #exec xmonad
 #exec gnome-session
