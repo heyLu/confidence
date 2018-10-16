@@ -6,6 +6,7 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	call vundle#rc()
 
 	Bundle 'fatih/vim-go'
+	Bundle 'adborden/vim-notmuch-address'
 endif
 
 " Have syntax highlighting and non-vi features
