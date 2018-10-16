@@ -5,42 +5,7 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 	set runtimepath+=~/.vim/bundle/vundle
 	call vundle#rc()
 
-	Bundle 'gmarik/vundle'
-	Bundle 'Lokaltog/vim-easymotion'
-	"Bundle 'laurilehmijoki/haskellmode-vim'
-	"au BufNewFile,BufRead *.hs compiler ghc
-	Bundle 'scrooloose/syntastic'
-	Bundle 'bitc/vim-hdevtools'
-	au FileType haskell noremap <buffer> \ht :HdevtoolsType<CR>
-	au FileType haskell noremap <buffer> \hc :HdevtoolsClear<CR>
-	Bundle 'tpope/vim-fireplace'
-
-	highlight SignColumn ctermbg=0
-	Bundle 'terryma/vim-multiple-cursors'
-
-	Bundle 'marijnh/tern_for_vim'
-
-	Bundle 'guns/vim-clojure-static'
-	Bundle 'kchmck/vim-coffee-script'
-
-	Bundle 'junegunn/goyo.vim'
-	function! s:goyo_before()
-		set noshowmode
-	endfunction
-
-	function! s:goyo_after()
-		set showmode
-	endfunction
-	let g:goyo_callbacks = [function('s:goyo_before'), function('s:goyo_after')]
-
-	Bundle 'flazz/vim-colorschemes'
-	Bundle 'lambdatoast/elm.vim'
 	Bundle 'fatih/vim-go'
-	Bundle 'scrooloose/nerdtree'
-endif
-
-if isdirectory($HOME . '/t/rust/src/etc/vim')
-	set runtimepath+=~/t/rust/src/etc/vim
 endif
 
 " Have syntax highlighting and non-vi features
