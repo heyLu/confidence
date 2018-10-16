@@ -28,7 +28,7 @@ func main() {
 	winAfter := xGetActiveWindow()
 
 	msg := fmt.Sprintf("Finished running %q in %s", cmdToString(cmd), duration)
-	if duration > 30*time.Second && win != winAfter {
+	if win != winAfter {
 		notifyCompletion(msg)
 	}
 	fmt.Fprintln(os.Stderr, msg)
