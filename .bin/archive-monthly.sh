@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Archives hidden files in $HOME to a monthly directory that has
+# backups.
+
 TARGET="$HOME/d/history-$(date +%Y-%m)"
 
 echo "Archiving files (and directories in) $PWD to $TARGET"
