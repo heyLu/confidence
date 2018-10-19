@@ -74,13 +74,14 @@ au BufNewFile,BufRead *.pxi set filetype=clojure
 " Don't let me further than 1 line towards the end or the beginning.
 set scrolloff=1
 
+set fileencodings=utf-8
+set encoding=utf-8
+
 " Show whitespace
 set list
 set listchars=tab:→\ ,trail:·,eol:¬
 "highlight SpecialKey ctermfg=10 ctermbg=8
 "highlight NonText ctermfg=10 ctermbg=8
-
-set fileencodings=utf-8
 
 " Automatically reread the file if it has been changed from the outside
 set autoread
