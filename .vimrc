@@ -142,9 +142,11 @@ map <c-b> :make<CR> " build
 map <Leader>t :TagbarToggle<CR>
 
 "" mappings and options inspired by https://www.vi-improved.org/recommendations/
-nnoremap <leader>b :b <c-d>
 nnoremap <leader>q :b#<cr>
-nnoremap <leader>e :e **/
+nnoremap <leader>b :Buffers<cr>
+nnoremap <leader>e :Files<cr>
+"nnoremap <leader>b :b <c-d>
+"nnoremap <leader>e :e **/
 
 inoremap ,f <c-x><c-f>
 inoremap ,n <c-x><c-n>
