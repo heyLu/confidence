@@ -10,11 +10,13 @@ if isdirectory($HOME . '/.vim/bundle/vundle')
 endif
 
 " Have syntax highlighting and non-vi features
-syntax on
 filetype plugin indent on
 
 set t_Co=256
-colorscheme hybrid
+
+highlight LineNr ctermfg=Gray guifg=Gray
+highlight SpecialKey ctermfg=LightGray guifg=LightGray
+highlight NonText ctermfg=LightGray guifg=LightGray
 
 " Indent without helping me.
 set autoindent
@@ -147,6 +149,8 @@ inoremap ,f <c-x><c-f>
 inoremap ,n <c-x><c-n>
 
 set statusline=%F%m%r%h%w[%L][%{&ff}]%y[%p%%][%04l,%04v]
+
+nnoremap <leader>S :if exists("g:syntax_on") <Bar> syntax off <Bar> else <Bar> syntax enable <Bar> endif <CR>
 
 """ Filetype specific stuff comes now...
 
