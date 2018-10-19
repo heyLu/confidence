@@ -1,0 +1,8 @@
+#!/bin/bash
+
+suffix=""
+if [ -n "$1" ]; then
+	suffix="_$1"
+fi
+
+scrot -s "%Y-%m-%dT%H:%M:%S${suffix}.png"
