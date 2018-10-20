@@ -72,7 +72,11 @@ func readDay(path string) Day {
 	f, err := os.Open(path)
 	if err != nil {
 		fmt.Fprintln(os.Stderr, err)
-		return Day{Start: time.Now()}
+		day := Day{Start: time.Now()}
+		if os.IsNotExist(err) {
+			writeDay(path, day)
+		}
+		return day
 	}
 	defer f.Close()
 
