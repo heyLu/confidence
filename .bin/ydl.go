@@ -26,7 +26,7 @@ func main() {
 
 	success := false
 	var err error
-	for {
+	for i := 0; i < 5; i++ {
 		url := args[0]
 		cmd := exec.Command("youtube-dl", "--no-mtime")
 		cmd.Stdin = os.Stdin
