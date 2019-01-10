@@ -145,6 +145,7 @@ map <Leader>t :TagbarToggle<CR>
 nnoremap <leader>q :b#<cr>
 nnoremap <leader>b :Buffers<cr>
 nnoremap <leader>e :Files<cr>
+nnoremap <leader>s :Ag<cr>
 "nnoremap <leader>b :b <c-d>
 "nnoremap <leader>e :e **/
 
