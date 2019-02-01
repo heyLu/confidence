@@ -8,7 +8,7 @@ import (
 	"time"
 )
 
-var isYoutube = regexp.MustCompile(`(www\.)youtube\.com|youtu\.be`)
+var isYoutube = regexp.MustCompile(`(www\.)?youtube\.com|youtu\.be`)
 
 func main() {
 	if len(os.Args) < 2 {
@@ -27,15 +27,19 @@ func main() {
 	success := false
 	var err error
 	for i := 0; i < 5; i++ {
-		url := args[0]
 		cmd := exec.Command("youtube-dl", "--no-mtime")
 		cmd.Stdin = os.Stdin
 		cmd.Stderr = os.Stderr
 		cmd.Stdout = os.Stdout
 
-		if isYoutube.MatchString(url) {
-			// download youtube video in a lower resolution (saving bandwidth/space)
-			cmd.Args = append(cmd.Args, "-f", "[height <=? 720]")
+		for _, arg := range args {
+			fmt.Println(arg, isYoutube.MatchString(arg))
+			if isYoutube.MatchString(arg) {
+				// download youtube video in a lower resolution (saving bandwidth/space)
+				cmd.Args = append(cmd.Args, "-f", "[height <=? 720]")
+
+				break
+			}
 		}
 
 		cmd.Args = append(cmd.Args, args...)
