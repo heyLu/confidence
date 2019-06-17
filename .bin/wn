@@ -1,0 +1,22 @@
+#!/bin/bash
+
+# inspired by https://lobste.rs/s/di5vin/shared_personal_note_taking#c_tkrc7g
+# 'summary mode' by lu
+
+set -eou pipefail
+
+WORK_NOTE_PATH="$HOME/.work_notes"
+touch "$WORK_NOTE_PATH"
+
+if [ $# -ge 1 ] && [ "$1" = "summary" ]; then
+	sed -En '/^# [0-9]{4}-.*$/h;/!summary/{x;p;x;p;n;p;:notes;n;/^-.*$/{p;b notes};p}' "$WORK_NOTE_PATH"
+	exit 0
+fi
+
+cat <<HEREDOC>>"$WORK_NOTE_PATH"
+
+---
+# $(date -u +"%Y-%m-%dT%H:%M:%SZ")
+
+HEREDOC
+vim + "$WORK_NOTE_PATH"

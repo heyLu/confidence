@@ -6,8 +6,8 @@ alias dstat='dstat --black-on-white'
 alias tomorrow="vim ~/d/tomorrow -c ':Goyo'"
 alias v="vim -c ':Goyo'"
 alias b="firefox"
-alias wn="sdcv --use-dict=WordNet"
-alias wb="sdcv --use-dict=\"Webster's Revised Unabridged Dictionary (1913)\""
+#alias wn="sdcv --use-dict=WordNet"
+#alias wb="sdcv --use-dict=\"Webster's Revised Unabridged Dictionary (1913)\""
 
 alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 
