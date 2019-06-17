@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
-# ls or less anything in your filesystem (depending on what it is).
+# ls or less anything in your filesystem or on the web (depending on what it is).
+
+url_pattern="https?://.*"
 
 if [ -d "$1" ]; then
 	ls --group-directories-first --color=auto "$1"
@@ -8,6 +10,8 @@ elif [ -f "$1" ]; then
 	less "$1"
 elif which "$1" &> /dev/null; then
 	less `which $1`
+elif [[ "$1" =~ $url_pattern ]]; then
+	curl --silent --fail "$1" | less
 else
 	ls --group-directories-first --color=auto $*
 fi
