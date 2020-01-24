@@ -14,6 +14,7 @@ var commandBlacklist = []string{
 	"fg",
 	"git commit",
 	"less",
+	"man",
 	"vim",
 }
 
