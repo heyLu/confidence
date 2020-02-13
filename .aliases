@@ -14,7 +14,3 @@ alias docker-ip="docker inspect --format '{{ .NetworkSettings.IPAddress }}'"
 # projects
 alias clarity="cd ~/k/lp/clj/clarity"
 alias pixl="cd ~/k/lp/js/pixl"
-
-alias uni="cd ~/d/uni/s2014"
-alias nkl="cd ~/d/uni/s2014/nkl"
-alias semweb="cd ~/d/uni/s2014/semweb"
