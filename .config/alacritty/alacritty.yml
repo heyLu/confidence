@@ -1,0 +1,40 @@
+scrolling:
+  # Maximum number of lines in the scrollback buffer.
+  # Specifying '0' will disable scrolling.
+  history: 0
+
+font:
+  normal:
+    family: "Fantasque Sans Mono"
+
+  # Point size
+  size: 9.5
+
+# custom colors from sakura's `tango` color palette: https://bazaar.launchpad.net/~dabisu/sakura/sakura/view/head:/src/sakura.c#L84
+#   converted for `st` with:
+#     grep -A16 ' tango_palette' src/sakura.c | tail -n16 | sed -E 's/^\s+\{/[/;s/,\s+1}.*$/]/;s/\s+//g' | xargs -I{} ruby -e 'puts "\"#"+{}.map{|c|sprintf("%02x", (c*256).to_i)}.join+"\","'
+#   and modified for alacrity manually
+colors:
+  primary:
+    background: "#eeeeec"
+    foreground: "#000000"
+
+  normal:
+    black:   "#000000" #, // "black",
+    red:     "#cc0000" #, // "red3",
+    green:   "#4e9a06" #, // "green3",
+    yellow:  "#c4a000" #, // "yellow3",
+    blue:    "#3465a4" #, // "blue2",
+    magenta: "#75507b" #, // "magenta3",
+    cyan:    "#06989a" #, // "cyan3",
+    white:   "#d3d7cf" #, // "gray90",
+
+  bright:
+    black:   "#555753" #, //"gray50",
+    red:     "#ef2929" #, //"red",
+    green:   "#8ae234" #, //"green",
+    yellow:  "#eddb08" #, //"#f4e106", //"#fce94f", //"yellow",
+    blue:    "#729fcf" #, //"#5c5cff",
+    magenta: "#ad7fa8" #, //"magenta",
+    cyan:    "#34e2e2" #, //"cyan",
+    white:   "#eeeeec" #, //"white",
