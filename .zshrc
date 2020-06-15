@@ -41,10 +41,11 @@ __last_cmd_time=""
 
 autoload colors && colors
 function precmd {
+	last_exit="$?"
 	echo -ne "\033]0;\007"
 	user="%{$fg[red]%}%n%{$reset_color%}"
 	dir="%{$fg[cyan]%}%~%{$reset_color%}"
-	duration=$(since "$__last_cmd_time" "$history[$(($HISTCMD-1))]")
+	duration=$(since "$__last_cmd_time" "$history[$(($HISTCMD-1))]" "$last_exit")
 	# store last cmd in psvar[1] (magically avoids escaping problems?)
 	psvar[1]="$history[$(($HISTCMD-1))]"
 	if [ -n "$SSH_CONNECTION" ]; then

@@ -21,6 +21,7 @@ var commandBlacklist = []string{
 func main() {
 	last := os.Args[1]
 	cmdName := os.Args[2]
+	exitStatus := os.Args[3]
 	t, err := time.Parse(time.RFC3339Nano, last)
 	if err != nil {
 		return
@@ -31,7 +32,11 @@ func main() {
 		// notify window manager (bell character, some window managers/terminals mark when it appears)
 		fmt.Printf("\a")
 		// send notification for long-running commands
-		cmd := exec.Command("notify-send", fmt.Sprintf("%q done", cmdName), fmt.Sprintf("took %s", dur))
+		statusInfo := "done"
+		if exitStatus != "0" {
+			statusInfo = fmt.Sprintf("failed (%s)", exitStatus)
+		}
+		cmd := exec.Command("notify-send", fmt.Sprintf("%q %s", cmdName, statusInfo), fmt.Sprintf("took %s", dur))
 		cmd.Start()
 	}
 	fmt.Printf("(%s) ", dur)
