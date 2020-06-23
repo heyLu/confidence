@@ -67,6 +67,8 @@ input type:keyboard {
     xkb_options grp:switch
 }
 
+input type:touchpad events disabled
+
 ### Key bindings
 #
 # Basics:
