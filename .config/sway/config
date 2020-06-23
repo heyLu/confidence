@@ -74,7 +74,7 @@ input type:touchpad events disabled
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return exec $term
+    bindsym $mod+Shift+Return exec $term
 
     # Kill focused window
     bindsym $mod+Shift+c kill
