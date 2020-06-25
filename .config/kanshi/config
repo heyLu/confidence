@@ -1,0 +1,8 @@
+profile external {
+	output DP-1 enable mode 2560x1440 position 0,0
+	output LVDS-1 disable
+}
+
+profile laptop {
+	output LVDS-1 enable
+}
