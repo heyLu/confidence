@@ -3,6 +3,16 @@ profile external {
 	output LVDS-1 disable
 }
 
+profile external-at-work {
+	output HDMI-A-2 enable
+	output LVDS-1 disable
+}
+
+profile jns-at-work {
+	output DP-2 enable
+	output LVDS-1 disable
+}
+
 profile laptop {
 	output LVDS-1 enable
 }
