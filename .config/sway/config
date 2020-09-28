@@ -35,6 +35,7 @@ output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 #output LVDS-1 dpms off
 
 exec kanshi
+exec_always kanshi
 
 ### Idle configuration
 #
@@ -93,6 +94,7 @@ input type:touchpad events disabled
 
     # Reload the configuration file
     bindsym $mod+q reload
+    bindsym $mod+Shift+p exec kanshi
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
