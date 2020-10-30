@@ -218,6 +218,10 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+for_window [title="PICO-8"] {
+	floating enable
+}
+
 #
 # Status Bar:
 #
