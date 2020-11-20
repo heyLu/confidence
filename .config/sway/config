@@ -221,6 +221,18 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+for_window [title="Select file"] {
+	floating enable
+}
+
+for_window [app_id="blueberry"] {
+	floating enable
+}
+
+for_window [app_id="pavucontrol"] {
+	floating enable
+}
+
 for_window [title="PICO-8"] {
 	floating enable
 }
