@@ -106,6 +106,7 @@ input type:touchpad events disabled
     bindsym XF86AudioLowerVolume exec amixer set Master 5%-
     bindsym XF86AudioRaiseVolume exec amixer set Master 5%+
     bindsym XF86AudioMute        exec amixer set Master toggle
+    bindsym XF86AudioPlay        exec playerctl play-pause
 
 #
 # Moving around:
