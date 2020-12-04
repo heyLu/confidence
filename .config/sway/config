@@ -109,6 +109,7 @@ input type:touchpad events disabled
     bindsym XF86AudioPlay        exec playerctl play-pause
 
     bindsym $mod+Shift+f exec ~/.bin/toggle-fan
+    bindsym $mod+Shift+s exec ~/.local/bin/grimshot save area
 
 #
 # Moving around:
