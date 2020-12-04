@@ -1,0 +1,9 @@
+#!/bin/bash
+
+if [ "$(systemctl is-active thinkfan)" = "active" ]; then
+	notify-send --expire-time=1000 "disabling quieter fan profile"
+	sudo systemctl stop thinkfan
+else
+	notify-send --expire-time=1000 "enabling quieter fan profile"
+	sudo systemctl start thinkfan
+fi
