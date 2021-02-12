@@ -231,11 +231,13 @@ for_window [title="Select file"] {
 	floating enable
 }
 
-for_window [app_id="blueberry"] {
+# float some settings windows
+for_window [app_id="pavucontrol|blueberry"] {
 	floating enable
 }
 
-for_window [app_id="pavucontrol"] {
+# float some music related things
+for_window [title="Calf|Carla"] {
 	floating enable
 }
 
