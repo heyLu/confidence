@@ -10,7 +10,7 @@ timely: timely.go
 	go build timely.go
 
 up: up.c
-	clang -Wall -o up up.c
+	$(CC) -Wall -o up up.c
 
 working-time: working-time.go
 	go build working-time.go
