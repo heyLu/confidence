@@ -67,6 +67,11 @@ bindkey $terminfo[khome] beginning-of-line
 bindkey $terminfo[kdch1] delete-char
 bindkey  history-incremental-search-backward
 
+if [ -e /usr/share/fzf/completion.zsh ]; then
+	source /usr/share/fzf/completion.zsh
+	source /usr/share/fzf/key-bindings.zsh
+fi
+
 source ~/.env
 source ~/.aliases
 
