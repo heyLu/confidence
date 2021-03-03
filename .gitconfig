@@ -6,7 +6,7 @@
 [merge]
 	conflictstyle = diff3
 [alias]
-	st = "!st() { git status --short --branch . && (git grep -E --color 'TODO|FIXME' -- :^Makefile || true) }; st"
+	st = "!st() { git status --short --branch . && (git grep --untracked -E --color 'TODO|FIXME' -- :^Makefile || true) }; st"
 	d  = diff .
 	l10 = log -n10
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
