@@ -237,7 +237,7 @@ for_window [app_id="pavucontrol|blueberry"] {
 }
 
 # float some music related things
-for_window [title="Calf|Carla"] {
+for_window [title="Calf|Carla|Catia|aeolus"] {
 	floating enable
 }
 
