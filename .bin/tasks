@@ -1,0 +1,13 @@
+#!/bin/bash
+
+if [ "$1" = "clear" ]; then
+	echo >> ~/.tasks.txt
+	exit 0
+fi
+
+if [ "$#" = "0" ]; then
+	grep '[a-z]' ~/.tasks.txt | tail -n1
+	exit 0
+fi
+
+echo "$*" >> ~/.tasks.txt
