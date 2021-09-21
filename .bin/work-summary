@@ -1,0 +1,29 @@
+#!/bin/bash
+
+summary_date="${1:-$(date +%Y-%m-%d)}"
+
+if [ "$summary_date" = "all" ]; then
+	cat ~/.work-summary.txt
+	exit $?
+fi
+
+if [ "$summary_date" = "catchup" ]; then
+	cut -f1 -d' ' ~/.work-log-30m | sort | uniq | xargs -I{} bash -c "grep {} ~/.work-summary.txt > /dev/null || echo {}" | xargs -I{} work-summary {}
+	exit
+fi
+
+summary="$(grep "$summary_date" ~/.work-summary.txt)"
+if [ "$?" = "0" ]; then
+	echo "$summary"
+	exit 0
+fi
+
+summary="$(zenity --entry --text "Summary of $summary_date:\n\n$(grep "$summary_date" ~/.work-log-30m)")"
+if [ -z "$summary" ]; then
+	exit 1
+fi
+
+echo -n "$summary_date -- " >> ~/.work-summary.txt
+echo "$summary" >> ~/.work-summary.txt
+echo >> ~/.work-log-30m
+echo "$summary_date -- $summary"
