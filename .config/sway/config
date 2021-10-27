@@ -23,7 +23,7 @@ set $menu bemenu-run | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/gnome/Icetwigs.jpg fill
+output * bg /usr/share/backgrounds/gnome/Leaf.jpg fill
 
 #
 # Example configuration:
