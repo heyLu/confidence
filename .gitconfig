@@ -38,3 +38,5 @@
 	ff = only
 [http "https://gopkg.in"]
 	followRedirects = true
+[init]
+	defaultBranch = main
