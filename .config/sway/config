@@ -245,6 +245,13 @@ for_window [title="PICO-8"] {
 	floating enable
 }
 
+for_window [app_id="healthy"] {
+	floating enable
+	move to scratchpad
+}
+
+exec healthy
+
 #
 # Status Bar:
 #
