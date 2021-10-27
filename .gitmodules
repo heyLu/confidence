@@ -1,0 +1,15 @@
+[submodule ".config/nvim/pack/luna/start/ale"]
+	path = .config/nvim/pack/luna/start/ale
+	url = https://github.com/dense-analysis/ale
+[submodule ".config/nvim/pack/luna/start/fzf"]
+	path = .config/nvim/pack/luna/start/fzf
+	url = https://github.com/junegunn/fzf
+[submodule ".config/nvim/pack/luna/start/fzf.vim"]
+	path = .config/nvim/pack/luna/start/fzf.vim
+	url = https://github.com/junegunn/fzf.vim
+[submodule ".config/nvim/pack/luna/start/vim-go"]
+	path = .config/nvim/pack/luna/start/vim-go
+	url = https://github.com/fatih/vim-go
+[submodule ".config/nvim/pack/luna/start/zig.vim"]
+	path = .config/nvim/pack/luna/start/zig.vim
+	url = https://github.com/ziglang/zig.vim
