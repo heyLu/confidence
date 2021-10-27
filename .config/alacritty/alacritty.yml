@@ -8,7 +8,7 @@ font:
     family: "Fantasque Sans Mono"
 
   # Point size
-  size: 9.5
+  size: 11
 
 # custom colors from sakura's `tango` color palette: https://bazaar.launchpad.net/~dabisu/sakura/sakura/view/head:/src/sakura.c#L84
 #   converted for `st` with:
