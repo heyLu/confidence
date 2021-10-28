@@ -1,6 +1,13 @@
+# get monitor names using `swaymsg -t get_outputs`
+
 profile external {
 	output DP-1 enable mode 2560x1440 position 0,0
 	output LVDS-1 disable
+}
+
+profile external-new {
+	output HDMI-A-1 enable
+	output eDP-1 disable # internal screen of new laptop
 }
 
 profile external-at-work {
