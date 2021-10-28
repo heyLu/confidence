@@ -16,6 +16,16 @@
 	release = "!r() { (test -n \"$1\" || (echo \"Missing version argument, e.g. git release 1.0.0\" && exit 1)) && git tag $1 && git push origin master $1; }; r"
 	trigger-release = "!r() { (test -n \"$1\" || (echo \"Missing version argument, e.g. git trigger-release 1.0.0\" && exit 1)) && git tag trigger-release-$1 && git push origin master trigger-release-$1; }; r"
 	prune-branches = "!p() { git branch -d $(git remote prune -n ${1:-origin} | sed -n \"s/.*\\[would prune\\] ${1:origin}\\///p\"); git remote prune ${1:-origin}; }; p $1"
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
+[delta]
+	light = true
+	color-only = true
+	# prevent truncating long lines
+	max-line-length = 0
 [format]
 	pretty = %C(auto)%h %Cgreen[%cr]%Creset %C(auto)(%an) %s%d
 [color]
