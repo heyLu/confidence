@@ -86,7 +86,9 @@ input type:touchpad events disabled
     bindsym $mod+Shift+c kill
 
     # Start your launcher
-    bindsym $mod+p exec $menu
+    bindsym $mod+shift+p exec $menu
+
+    bindsym $mod+p exec SEARCH_DIRS="$HOME/t/zig/lib:$HOME/k:$HOME/w:$HOME/Downloads:/usr/include" $HOME/k/qck/qck
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -97,7 +99,6 @@ input type:touchpad events disabled
 
     # Reload the configuration file
     bindsym $mod+q reload
-    bindsym $mod+Shift+p exec kanshi
 
     # Exit sway (logs you out of your Wayland session)
     bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -b 'Yes, exit sway' 'swaymsg exit'
@@ -115,7 +116,7 @@ input type:touchpad events disabled
     bindsym $mod+Shift+f exec ~/.bin/toggle-fan
     bindsym $mod+Shift+s exec grimshot save area
 
-    bindsym $mod+Insert exec rofimoji # emojis 🥰
+    bindsym $mod+Insert exec rofimoji --selector wofi --clipboarder wl-copy --typer wtype # emojis 🥰
 
 #
 # Moving around:
@@ -234,6 +235,14 @@ for_window [title="Select file"] {
 	floating enable
 }
 
+for_window [app_id="org.gnome.NautilusPreviewer"] {
+	floating enable
+}
+
+for_window [title="Sharing Indicator"] {
+	floating enable
+}
+
 # float some settings windows
 for_window [app_id="pavucontrol|blueberry"] {
 	floating enable
@@ -254,6 +263,10 @@ for_window [app_id="healthy"] {
 }
 
 exec healthy
+
+for_window [app_id="lutris"] {
+	floating enable
+}
 
 #
 # Status Bar:

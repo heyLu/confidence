@@ -10,9 +10,19 @@ profile external-new {
 	output eDP-1 disable # internal screen of new laptop
 }
 
+profile docked {
+	output DP-3 enable mode 2560x1440 position 0,0
+	output eDP-1 disable
+}
+
 profile external-at-work {
 	output HDMI-A-2 enable
 	output LVDS-1 disable
+}
+
+profile external-new-laptop {
+	output HDMI-A-1 enable
+	output eDP-1 disable
 }
 
 profile jns-at-work {
