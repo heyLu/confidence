@@ -23,7 +23,7 @@ set $menu bemenu-run | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/gnome/Leaf.jpg fill
+exec_always swaymsg output * bg /usr/share/backgrounds/gnome/adwaita-d.jpg fill
 
 #
 # Example configuration:
@@ -67,13 +67,13 @@ exec_always kanshi
 #
 # You can get the names of your inputs by running: swaymsg -t get_inputs
 # Read `man 5 sway-input` for more information about this section.
-input type:keyboard {
+exec_always swaymsg input type:keyboard {
     xkb_layout us,de
     #xkb_variant Keyodeadkeys
     xkb_options grp:switch
 }
 
-input type:touchpad events disabled
+exec_always swaymsg input type:touchpad events disabled
 
 ### Key bindings
 #
