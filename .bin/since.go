@@ -16,6 +16,7 @@ var commandBlacklist = []string{
 	"less",
 	"man",
 	"vim",
+	"hx",
 }
 
 func main() {

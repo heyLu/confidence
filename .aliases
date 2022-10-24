@@ -1,6 +1,7 @@
 alias ls='ls --group-directories-first --color=auto'
 alias grep='grep --color=auto'
 alias dstat='dstat --black-on-white'
+alias hx='helix'
 
 # shortcuts
 alias tomorrow="vim ~/d/tomorrow -c ':Goyo'"
