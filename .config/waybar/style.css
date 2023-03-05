@@ -224,3 +224,7 @@ label:focus {
     margin: 0 5px;
     min-width: 16px;
 }
+
+#tray {
+    background-color: rgba(0, 0, 0, 0.3);
+}

@@ -264,6 +264,8 @@ for_window [app_id="healthy"] {
 
 exec healthy
 
+exec nm-applet --indicator
+
 for_window [app_id="lutris"] {
 	floating enable
 }

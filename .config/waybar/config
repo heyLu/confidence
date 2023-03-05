@@ -6,7 +6,7 @@
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
     "modules-center": ["custom/media"],
-    "modules-right": ["custom/task", "custom/work", "custom/pacman", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock"],
+    "modules-right": ["custom/task", "custom/work", "custom/pacman", "pulseaudio", "network", "cpu", "memory", "temperature", "battery", "clock", "tray"],
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
@@ -105,4 +105,8 @@
       "exec": "tail -n1 -f ~/.tasks.txt",
       "on-click": "~/.bin/tasks clear",
     },
+    "tray": {
+      "icon-size": 21,
+      "spacing": 20
+    }
 }
