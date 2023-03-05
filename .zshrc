@@ -5,6 +5,10 @@ zstyle ':completion:*' completer _complete _ignored
 zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**'
 zstyle :compinstall filename '/home/lu/.zshrc'
 
+# remove prompts before auto-completing: https://unix.stackexchange.com/questions/26789/pipe-zsh-auto-completion-list-to-file-or-less/30092
+zstyle ':completion:*' list-prompt   ''
+zstyle ':completion:*' select-prompt ''
+
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
