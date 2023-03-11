@@ -6,7 +6,7 @@
 [merge]
 	conflictstyle = diff3
 [alias]
-	st = "!st() { git status --short --branch $GIT_PREFIX && (git grep --untracked -E --color 'TODO|FIXME' -- :^Makefile $GIT_PREFIX || true) }; st"
+	st = "!st() { git status --short --branch $GIT_PREFIX && (todos=$(timeout 0.5s git grep --untracked -E --color 'TODO|FIXME' -- :^Makefile $GIT_PREFIX || true); num_todos=$(echo \"$todos\" | wc -l); test $num_todos -gt 1 && (echo \"$todos\" | head -n20); test $num_todos -gt 20 && echo \"... of $num_todos TODO/FIXME items\";) }; st"
 	d  = diff .
 	l10 = log -n10
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
