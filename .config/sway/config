@@ -237,6 +237,10 @@ for_window [title="Select file"] {
 	floating enable
 }
 
+for_window [app_id="org.gnome.Nautilus"] {
+	border none
+}
+
 for_window [app_id="org.gnome.NautilusPreviewer"] {
 	floating enable
 }
@@ -269,6 +273,10 @@ exec healthy
 exec nm-applet --indicator
 
 for_window [app_id="lutris"] {
+	floating enable
+}
+
+for_window [instance="Godot_Engine|Godot_Editor"] {
 	floating enable
 }
 
