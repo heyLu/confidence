@@ -7,7 +7,8 @@ profile external {
 
 profile external-new {
 	output HDMI-A-1 enable
-	output eDP-1 disable # internal screen of new laptop
+	# internal screen of new laptop
+	output eDP-1 disable
 }
 
 profile docked {
