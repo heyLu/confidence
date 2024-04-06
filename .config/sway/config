@@ -35,6 +35,8 @@ output * bg /usr/share/backgrounds/gnome/blobs-d.svg fill
 #output LVDS-1 disable
 #output LVDS-1 dpms off
 
+output * max_render_time 5
+
 workspace_layout stacking
 
 exec kanshi
