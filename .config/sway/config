@@ -23,7 +23,7 @@ set $menu bemenu-run | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
-output * bg /usr/share/backgrounds/gnome/adwaita-d.webp fill
+output * bg /usr/share/backgrounds/gnome/blobs-d.svg fill
 
 #
 # Example configuration:
