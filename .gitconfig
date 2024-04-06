@@ -2,7 +2,7 @@
 	name = Luna Stadler
 	email = lu@papill0n.org
 [core]
-	editor = nvim
+	editor = helix
 [merge]
 	conflictstyle = diff3
 [alias]
