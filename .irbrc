@@ -9,7 +9,7 @@ require 'irb/completion'
 #  @param hist_src the 'backend' that records the history.
 #                  Must respond to #to_a and #push.
 class StoredHistory
-  def initialize hist_file, hist_src=Readline::HISTORY
+  def initialize hist_file, hist_src=Reline::HISTORY
     @history = hist_file
     @src     = hist_src
     
