@@ -233,12 +233,23 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+default_border pixel 2
+hide_edge_borders --i3 smart
+
+for_window [all] {
+	border csd
+}
+
+for_window [app_id=Alacritty] {
+	border none
+}
+
 for_window [title="Select file"] {
 	floating enable
 }
 
 for_window [app_id="org.gnome.Nautilus"] {
-	border none
+	border csd
 }
 
 for_window [app_id="org.gnome.NautilusPreviewer"] {
