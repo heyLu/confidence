@@ -345,7 +345,7 @@ binds {
     Mod+D { spawn "fuzzel"; }
     Super+Alt+L { spawn "swaylock" "-c" "000000"; }
 
-    Mod+Insert { spawn "rofimoji"; }
+    Mod+Insert { spawn "rofimoji" "--files" "emojis" "currency_symbols" "greek_and_coptic" "ipa_extensions" "latin-1_supplement" "gothic" "number_form"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "+5%"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn "pactl" "set-sink-volume" "@DEFAULT_SINK@" "-5%"; }
