@@ -3,7 +3,7 @@
 zstyle ':completion:*' completer _complete _ignored
 #zstyle ':completion:*' matcher-list 'm:{[:lower:]}={[:upper:]}' 'r:|[._-/]=** r:|=**'
 zstyle ':completion:*' matcher-list 'r:|[._-]=** r:|=**'
-zstyle :compinstall filename '/home/lu/.zshrc'
+zstyle :compinstall filename "$HOME/.zshrc"
 
 # remove prompts before auto-completing: https://unix.stackexchange.com/questions/26789/pipe-zsh-auto-completion-list-to-file-or-less/30092
 zstyle ':completion:*' list-prompt   ''
@@ -55,7 +55,7 @@ function precmd {
 	if [ -n "$SSH_CONNECTION" ]; then
 		server="@`echo $SSH_CONNECTION | cut -d' ' -f3`"
 	fi
-	PROMPT="$user$server in $dir@$(repo_branch) $duration%(?.%1v.%B%1v%b)
+	PROMPT="$user$server (`kubectl config current-context`) in $dir@$(repo_branch) $duration%(?.%1v.%B%1v%b)
 $(repo_char) $ "
 	#RPROMPT="%D{%Y-%m-%d} %{$fg[red]%}%t%{$reset_color%}"
 	__last_cmd_time=$(date +%Y-%m-%dT%H:%M:%S.%N%:z)
@@ -79,5 +79,5 @@ fi
 source ~/.env
 source ~/.aliases
 
-# OPAM configuration
-. /home/lu/.opam/opam-init/init.zsh > /dev/null 2> /dev/null || true
+# bun completions
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
