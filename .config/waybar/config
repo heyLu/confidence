@@ -1,7 +1,7 @@
 {
     // "layer": "top", // Waybar at top layer
     // "position": "bottom", // Waybar position (top|bottom|left|right)
-    "height": 22, // Waybar height (to be removed for auto height)
+    "height": 24, // Waybar height (to be removed for auto height)
     // "width": 1280, // Waybar width
     // Choose the order of the modules
     "modules-left": ["sway/workspaces", "sway/mode", "sway/window"],
@@ -10,8 +10,11 @@
     "sway/mode": {
         "format": "<span style=\"italic\">{}</span>"
     },
+    "sway/window": {
+        "icon": true
+    },
     "tray": {
-        // "icon-size": 21,
+        "icon-size": 21,
         "spacing": 10
     },
     "clock": {
@@ -97,7 +100,7 @@
     //},
     "custom/work": {
         "format": " {} ",
-        "exec": "working-time",
+        "exec": "$HOME/.bin/working-time",
         "interval": 60,
     },
     "custom/task": {
