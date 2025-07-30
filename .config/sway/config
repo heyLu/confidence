@@ -4,6 +4,9 @@
 #
 # Read `man 5 sway` for a complete reference.
 
+# include default settings for env vars, dbus and desktop portal
+include /etc/sway/config.d/*
+
 ### Variables
 #
 # Logo key. Use Mod1 for Alt.
@@ -18,7 +21,7 @@ set $term ghostty -e tmux
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
-set $menu bemenu-run | xargs swaymsg exec --
+set $menu bemenu-run --line-height 24 | xargs swaymsg exec --
 
 ### Output configuration
 #
@@ -39,8 +42,8 @@ output * max_render_time 5
 
 workspace_layout stacking
 
-exec kanshi
-exec_always kanshi
+exec_always "pkill kanshi; kanshi"
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=sway
 
 ### Idle configuration
 #
@@ -90,7 +93,7 @@ input type:touchpad events disabled
     # Start your launcher
     bindsym $mod+shift+p exec $menu
 
-    bindsym $mod+p exec SEARCH_DIRS="$HOME/t/zig/lib:$HOME/k:$HOME/w:$HOME/Downloads:/usr/include" $HOME/k/qck/qck
+    bindsym $mod+p exec SEARCH_DIRS="$HOME/t/zig/lib:$HOME/k:$HOME/w:$HOME/projects:$HOME/Downloads:/usr/include" $HOME/k/qck/qck
 
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
@@ -118,7 +121,7 @@ input type:touchpad events disabled
     bindsym $mod+Shift+f exec ~/.bin/toggle-fan
     bindsym $mod+Shift+s exec grimshot save area
 
-    bindsym $mod+Insert exec rofimoji --selector wofi --clipboarder wl-copy --typer wtype # emojis 🥰
+    bindsym $mod+Insert exec rofimoji --files emojis currency_symbols greek_and_coptic ipa_extensions latin-1_supplement gothic number_forms # emojis 🥰
 
 #
 # Moving around:
@@ -256,12 +259,16 @@ for_window [app_id="org.gnome.NautilusPreviewer"] {
 	floating enable
 }
 
+for_window [app_id="nm-connection-editor"] {
+	floating enable
+}
+
 for_window [title="Sharing Indicator"] {
 	floating enable
 }
 
 # float some settings windows
-for_window [app_id="pavucontrol|blueberry"] {
+for_window [app_id="pavucontrol|blueberry|zenity"] {
 	floating enable
 }
 
