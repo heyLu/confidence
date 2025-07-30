@@ -54,3 +54,7 @@
 	followRedirects = true
 [init]
 	defaultBranch = main
+
+; special config for work
+[includeIf "gitdir:~/projects/"]
+	path = ~/.gitconfig.work
