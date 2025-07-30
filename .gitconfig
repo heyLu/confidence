@@ -4,18 +4,19 @@
 [core]
 	editor = helix
 [merge]
-	conflictstyle = diff3
+	conflictstyle = zdiff3
 [alias]
-	st = "!st() { git status --short --branch $GIT_PREFIX && (todos=$(timeout 0.5s git grep --untracked -E --color 'TODO|FIXME' -- :^Makefile $GIT_PREFIX || true); num_todos=$(echo \"$todos\" | wc -l); test $num_todos -gt 1 && (echo \"$todos\" | head -n20); test $num_todos -gt 20 && echo \"... of $num_todos TODO/FIXME items\";) }; st"
+	st = "!st() { git status --short --branch $GIT_PREFIX && (todos=$(timeout 0.5s git grep --untracked -E --color 'TODO|FIXME' -- :^Makefile $GIT_PREFIX || true); num_todos=$(echo \"$todos\" | wc -l); test $num_todos -gt 1 && (echo \"$todos\" | head -n20 | cut -b '-200'); test $num_todos -gt 20 && echo \"... of $num_todos TODO/FIXME items\";) }; st"
 	d  = diff .
 	l10 = log -n10
 	lol = log --pretty=oneline --abbrev-commit --graph --decorate
 	ba = branch -a
 	praise = blame
 	recent-tags = ! sh -c 'git tag --sort=-authordate | head -n5'
-	release = "!r() { (test -n \"$1\" || (echo \"Missing version argument, e.g. git release 1.0.0\" && exit 1)) && git tag $1 && git push origin master $1; }; r"
-	trigger-release = "!r() { (test -n \"$1\" || (echo \"Missing version argument, e.g. git trigger-release 1.0.0\" && exit 1)) && git tag trigger-release-$1 && git push origin master trigger-release-$1; }; r"
+	release = "!r() { (test -n \"$1\" || (echo \"Missing version argument, e.g. git release 1.0.0\" && exit 1)) && git tag $1 && git push origin $(git symbolic-ref refs/remotes/origin/HEAD | cut -d '/' -f4) $1; }; r"
+	trigger-release = "!r() { (test -n \"$1\" || (echo \"Missing version argument, e.g. git trigger-release 1.0.0\" && exit 1)) && git tag trigger-release-$1 && git push origin $(git symbolic-ref refs/remotes/origin/HEAD | cut -d '/' -f4) trigger-release-$1; }; r"
 	prune-branches = "!p() { git branch -d $(git remote prune -n ${1:-origin} | sed -n \"s/.*\\[would prune\\] ${1:origin}\\///p\"); git remote prune ${1:-origin}; }; p $1"
+	ticket = "!t() { git log -n1 --format='%s' HEAD | sed -nE \"s/^.*([A-Z]{3,}-[0-9]{5,}).*$/\\1/p\" | tr -d '\\n'; }; t"
 [pager]
 	diff = delta
 	log = delta
