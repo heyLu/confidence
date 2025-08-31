@@ -2,3 +2,4 @@ font-family="Fantasque Sans Mono"
 font-size=11
 theme=Alabaster
 link-url=true
+command=tmux
