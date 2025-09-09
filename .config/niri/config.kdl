@@ -246,9 +246,7 @@ layout {
 // See the binds section below for more spawn examples.
 // spawn-at-startup "alacritty" "-e" "fish"
 
-spawn-at-startup "xwayland-satellite"
 environment {
-    DISPLAY ":0"
     _JAVA_AWT_WM_NONREPARENTING "1"
 }
 
